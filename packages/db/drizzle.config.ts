@@ -1,5 +1,5 @@
 import * as dotenv from "dotenv";
-import type { Config } from "drizzle-kit";
+import { type Config } from "drizzle-kit";
 
 dotenv.config({
   path: "../../.env",
@@ -15,5 +15,5 @@ export default {
   dbCredentials: {
     connectionString: process.env.DATABASE_URL,
   },
-  tablesFilter: ["t3turbo_*"],
+  tablesFilter: ["soko_*"],
 } satisfies Config;

@@ -6,12 +6,17 @@
  * tl;dr - this is where all the tRPC server stuff is created and plugged in.
  * The pieces you will need to use are documented accordingly near the end
  */
+
+import { type NextRequest } from "next/server";
+import type {
+  SignedInAuthObject,
+  SignedOutAuthObject,
+} from "@clerk/nextjs/api";
+import { getAuth } from "@clerk/nextjs/server";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-import { auth } from "@acme/auth";
-import type { Session } from "@acme/auth";
 import { db } from "@acme/db";
 
 /**
@@ -23,8 +28,10 @@ import { db } from "@acme/db";
  * processing a request
  *
  */
+
 interface CreateContextOptions {
-  session: Session | null;
+  auth: SignedInAuthObject | SignedOutAuthObject | null;
+  req?: NextRequest;
 }
 
 /**
@@ -38,7 +45,7 @@ interface CreateContextOptions {
  */
 const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
-    session: opts.session,
+    ...opts,
     db,
   };
 };
@@ -48,17 +55,15 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
  * process every request that goes through your tRPC endpoint
  * @link https://trpc.io/docs/context
  */
-export const createTRPCContext = async (opts: {
-  req?: Request;
-  auth?: Session;
-}) => {
-  const session = opts.auth ?? (await auth());
+export const createTRPCContext = (opts: { req: NextRequest }) => {
+  const auth = getAuth(opts.req);
   const source = opts.req?.headers.get("x-trpc-source") ?? "unknown";
 
-  console.log(">>> tRPC Request from", source, "by", session?.user);
+  console.log(">>> tRPC Request from", source, "by", auth.userId);
 
   return createInnerTRPCContext({
-    session,
+    auth,
+    req: opts.req,
   });
 };
 
@@ -68,6 +73,7 @@ export const createTRPCContext = async (opts: {
  * This is where the trpc api is initialized, connecting the context and
  * transformer
  */
+
 const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
   errorFormatter({ shape, error }) {
@@ -109,13 +115,17 @@ export const publicProcedure = t.procedure;
  * procedure
  */
 const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
-  if (!ctx.session?.user) {
+  if (!ctx.auth?.userId) {
     throw new TRPCError({ code: "UNAUTHORIZED" });
   }
+
   return next({
     ctx: {
-      // infers the `session` as non-nullable
-      session: { ...ctx.session, user: ctx.session.user },
+      // Infers `auth` as non-nullable
+      auth: {
+        ...ctx.auth,
+        userId: ctx.auth.userId,
+      },
     },
   });
 });
