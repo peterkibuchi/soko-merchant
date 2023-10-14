@@ -6,10 +6,10 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import "~/styles/globals.css";
 
-import { TRPCReactProvider } from "~/app/providers";
-import { Analytics, TailwindIndicator, ThemeProvider } from "~/components";
+import { Analytics, TailwindIndicator } from "~/components";
 import { siteConfig } from "~/config/site";
 import { cn } from "~/lib/utils";
+import { ModalProvider, ThemeProvider, TRPCReactProvider } from "~/providers";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -90,10 +90,11 @@ export default function RootLayout({
           <TRPCReactProvider headers={headers()}>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               {children}
-
-              <Analytics />
               <TailwindIndicator />
             </ThemeProvider>
+
+            <Analytics />
+            <ModalProvider />
           </TRPCReactProvider>
         </ClerkProvider>
       </body>
