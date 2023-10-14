@@ -72,33 +72,31 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <>
-      <ClerkProvider>
-        <html lang="en">
-          <body
-            className={cn(
-              "min-h-screen bg-background font-sans antialiased",
-              fontSans.variable,
-              fontCal.variable,
-            )}
-          >
-            <TRPCReactProvider headers={headers()}>
-              <ThemeProvider
-                attribute="class"
-                defaultTheme="system"
-                enableSystem
-              >
-                {children}
+    <html lang="en">
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable,
+          fontCal.variable,
+        )}
+      >
+        <ClerkProvider>
+          <TRPCReactProvider headers={headers()}>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              {children}
 
-                <Analytics />
-                <TailwindIndicator />
-              </ThemeProvider>
-            </TRPCReactProvider>
-          </body>
-        </html>
-      </ClerkProvider>
-    </>
+              <Analytics />
+              <TailwindIndicator />
+            </ThemeProvider>
+          </TRPCReactProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }

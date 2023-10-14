@@ -4,12 +4,10 @@ import { authMiddleware } from "@clerk/nextjs/server";
 export default authMiddleware({
   signInUrl: "/login",
   publicRoutes: [
-    "/",
     "/login(.*)",
     "/pricing(.*)",
     "/privacy(.*)",
     "/register(.*)",
-    "/sso-callback(.*)",
     "/terms(.*)",
   ],
 
