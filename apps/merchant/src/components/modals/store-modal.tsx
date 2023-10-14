@@ -1,3 +1,4 @@
+import { CreateStoreForm } from "~/components/forms/create-store-form";
 import { Modal } from "~/components/ui/modal";
 import { useStoreModal } from "~/hooks/use-store-modal";
 
@@ -10,6 +11,8 @@ export function StoreModal() {
       description="Add a new store to manage products and categories."
       isOpen={storeModal.isOpen}
       onCloseModal={storeModal.onCloseModal}
-    ></Modal>
+    >
+      <CreateStoreForm />
+    </Modal>
   );
 }
