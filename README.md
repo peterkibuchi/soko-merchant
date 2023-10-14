@@ -73,4 +73,4 @@ pnpm dev
 
 ## Project Status
 
-Rave is currently: _in development_.
+Soko is currently: _in development_.
