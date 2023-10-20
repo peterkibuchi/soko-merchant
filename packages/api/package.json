@@ -4,6 +4,18 @@
   "private": true,
   "main": "./index.ts",
   "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./validators": "./src/validators.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./*",
+        "./src/*"
+      ]
+    }
+  },
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "format": "prettier --check \"**/*.{mjs,ts,md,json}\"",
