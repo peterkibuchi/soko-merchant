@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "@planetscale/database": "^1.11.0",
-    "drizzle-orm": "^0.28.6"
+    "drizzle-orm": "^0.28.6",
+    "nanoid": "^5.0.2"
   },
   "devDependencies": {
     "@acme/eslint-config": "^0.2.0",

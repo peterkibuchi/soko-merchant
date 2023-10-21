@@ -1,11 +1,5 @@
 import { relations } from "drizzle-orm";
-import {
-  boolean,
-  decimal,
-  index,
-  serial,
-  varchar,
-} from "drizzle-orm/mysql-core";
+import { boolean, decimal, index, varchar } from "drizzle-orm/mysql-core";
 
 import { createdAt, mySqlTable, updatedAt } from "./_table";
 import { orderItems } from "./order";
@@ -14,16 +8,17 @@ import { categories, stores } from "./store";
 export const products = mySqlTable(
   "products",
   {
-    id: serial("id").primaryKey(),
-    name: varchar("name", { length: 255 }).notNull(),
+    id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
+    name: varchar("name", { length: 64 }).notNull(),
     price: decimal("price", { precision: 10, scale: 2 }).notNull(),
+
     isArchived: boolean("isArchived").default(false).notNull(),
     isFeatured: boolean("isFeatured").default(false).notNull(),
 
-    categoryId: varchar("userId", { length: 255 }).notNull(),
-    colorId: varchar("userId", { length: 255 }).notNull(),
-    sizeId: varchar("userId", { length: 255 }).notNull(),
-    storeId: varchar("userId", { length: 255 }).notNull(),
+    categoryId: varchar("userId", { length: 32 }).notNull(),
+    colorId: varchar("userId", { length: 32 }).notNull(),
+    sizeId: varchar("userId", { length: 32 }).notNull(),
+    storeId: varchar("userId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
@@ -52,11 +47,11 @@ export const productsRelations = relations(products, ({ many, one }) => ({
 export const colors = mySqlTable(
   "colors",
   {
-    id: serial("id").primaryKey(),
-    name: varchar("name", { length: 255 }).notNull(),
-    value: varchar("name", { length: 255 }).notNull(),
+    id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
+    name: varchar("name", { length: 32 }).notNull(),
+    value: varchar("name", { length: 32 }).notNull(),
 
-    storeId: varchar("userId", { length: 255 }).notNull(),
+    storeId: varchar("userId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
@@ -74,11 +69,11 @@ export const colorsRelations = relations(colors, ({ many, one }) => ({
 export const sizes = mySqlTable(
   "sizes",
   {
-    id: serial("id").primaryKey(),
-    name: varchar("name", { length: 255 }).notNull(),
-    value: varchar("name", { length: 255 }).notNull(),
+    id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
+    name: varchar("name", { length: 32 }).notNull(),
+    value: varchar("name", { length: 32 }).notNull(),
 
-    storeId: varchar("userId", { length: 255 }).notNull(),
+    storeId: varchar("userId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
@@ -96,10 +91,10 @@ export const sizesRelations = relations(sizes, ({ many, one }) => ({
 export const images = mySqlTable(
   "images",
   {
-    id: serial("id").primaryKey(),
-    url: varchar("name", { length: 255 }).notNull(),
+    id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
+    url: varchar("name", { length: 64 }).notNull(),
 
-    productId: varchar("userId", { length: 255 }).notNull(),
+    productId: varchar("userId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,

@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm";
-import { boolean, index, serial, varchar } from "drizzle-orm/mysql-core";
+import { boolean, index, varchar } from "drizzle-orm/mysql-core";
 
 import { createdAt, mySqlTable, updatedAt } from "./_table";
 import { products } from "./product";
@@ -8,14 +8,15 @@ import { stores } from "./store";
 export const orders = mySqlTable(
   "orders",
   {
-    id: serial("id").primaryKey(),
-    name: varchar("name", { length: 255 }).notNull(),
+    id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
+    name: varchar("name", { length: 64 }).notNull(),
+
+    phone: varchar("name", { length: 16 }).notNull(),
+    address: varchar("name", { length: 128 }).notNull(),
     isPaid: boolean("isPaid").default(false).notNull(),
     isDelivered: boolean("isDelivered").default(false).notNull(),
-    phone: varchar("name", { length: 255 }).notNull(),
-    address: varchar("name", { length: 255 }).notNull(),
 
-    storeId: varchar("userId", { length: 255 }).notNull(),
+    storeId: varchar("userId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
@@ -33,10 +34,10 @@ export const ordersRelations = relations(orders, ({ many, one }) => ({
 export const orderItems = mySqlTable(
   "orderItems",
   {
-    id: serial("id").primaryKey(),
+    id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
 
-    orderId: varchar("userId", { length: 255 }).notNull(),
-    productId: varchar("userId", { length: 255 }).notNull(),
+    orderId: varchar("userId", { length: 32 }).notNull(),
+    productId: varchar("userId", { length: 32 }).notNull(),
   },
   (orderItem) => ({
     orderIdIdx: index("orderId_idx").on(orderItem.orderId),

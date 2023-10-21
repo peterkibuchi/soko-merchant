@@ -1,14 +1,14 @@
 import { relations } from "drizzle-orm";
-import { index, serial, varchar } from "drizzle-orm/mysql-core";
+import { index, varchar } from "drizzle-orm/mysql-core";
 
 import { createdAt, mySqlTable, updatedAt } from "./_table";
 import { orders } from "./order";
 import { colors, products, sizes } from "./product";
 
 export const stores = mySqlTable("stores", {
-  id: serial("id").primaryKey(),
-  name: varchar("name", { length: 255 }).notNull(),
-  userId: varchar("userId", { length: 255 }).notNull(),
+  id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
+  name: varchar("name", { length: 64 }).notNull(),
+  userId: varchar("userId", { length: 64 }).notNull(),
 
   createdAt,
   updatedAt,
@@ -26,12 +26,12 @@ export const storesRelations = relations(stores, ({ many }) => ({
 export const billboards = mySqlTable(
   "billboards",
   {
-    id: serial("id").primaryKey(),
-    name: varchar("name", { length: 255 }).notNull(),
-    imageUrl: varchar("userId", { length: 255 }).notNull(),
-    label: varchar("userId", { length: 255 }).notNull(),
+    id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
+    name: varchar("name", { length: 64 }).notNull(),
+    imageUrl: varchar("userId", { length: 64 }).notNull(),
+    label: varchar("userId", { length: 64 }).notNull(),
 
-    storeId: varchar("userId", { length: 255 }).notNull(),
+    storeId: varchar("userId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
@@ -49,11 +49,11 @@ export const billboardsRelations = relations(billboards, ({ many, one }) => ({
 export const categories = mySqlTable(
   "categories",
   {
-    id: serial("id").primaryKey(),
-    name: varchar("name", { length: 255 }).notNull(),
+    id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
+    name: varchar("name", { length: 64 }).notNull(),
 
-    billboardId: varchar("userId", { length: 255 }).notNull(),
-    storeId: varchar("userId", { length: 255 }).notNull(),
+    billboardId: varchar("userId", { length: 32 }).notNull(),
+    storeId: varchar("userId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
