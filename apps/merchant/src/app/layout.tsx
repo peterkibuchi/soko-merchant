@@ -7,6 +7,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "~/styles/globals.css";
 
 import { Analytics, TailwindIndicator } from "~/components";
+import { Toaster } from "~/components/ui/toaster";
 import { siteConfig } from "~/config/site";
 import { cn } from "~/lib/utils";
 import { ModalProvider, ThemeProvider, TRPCReactProvider } from "~/providers";
@@ -95,6 +96,7 @@ export default function RootLayout({
 
             <Analytics />
             <ModalProvider />
+            <Toaster />
           </TRPCReactProvider>
         </ClerkProvider>
       </body>

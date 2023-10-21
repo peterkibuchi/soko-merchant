@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
+import { toast } from "~/components/ui/use-toast";
 import { useStoreModal } from "~/hooks/use-store-modal";
 import { api } from "~/utils/api";
 
@@ -30,16 +31,30 @@ export function CreateStoreForm() {
     mutateAsync: createStore,
     isLoading,
     // error,
-  } = api.store.create.useMutation();
+  } = api.store.create.useMutation({
+    onSuccess() {
+      toast({
+        title: "Store Created",
+        description: "Your store has been created successfully.",
+      });
+    },
+
+    onError() {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    },
+
+    onSettled() {
+      form.reset();
+    },
+  });
 
   const onSubmit = async (values: createStoreType) => {
-    try {
-      const response = await createStore(values);
-      console.log(response);
-      // window.location.assign(`/${response.data.id}`);
-    } catch (error) {
-      // toast.error("Something went wrong");
-    }
+    const response = await createStore(values);
+    if (response) window.location.assign(`/${response.id}`);
   };
 
   return (
