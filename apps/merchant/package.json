@@ -15,7 +15,7 @@
   "dependencies": {
     "@acme/api": "^0.1.0",
     "@acme/db": "^0.1.0",
-    "@clerk/nextjs": "^4.25.6",
+    "@clerk/nextjs": "^4.25.7",
     "@hookform/resolvers": "^3.3.2",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
