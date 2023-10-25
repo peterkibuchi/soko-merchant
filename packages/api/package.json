@@ -27,7 +27,7 @@
     "@clerk/nextjs": "^4.25.7",
     "@trpc/client": "^10.41.0",
     "@trpc/server": "^10.41.0",
-    "superjson": "2.1.0",
+    "superjson": "2.2.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
