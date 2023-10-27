@@ -3,15 +3,15 @@ import { auth } from "@clerk/nextjs";
 
 import { db, eq, schema } from "@acme/db";
 
-interface StoreLayoutProps {
+interface DashboardLayoutProps {
   children: React.ReactNode;
   params: { storeId: string };
 }
 
-export default async function StoreLayout({
+export default async function DashboardLayout({
   children,
   params,
-}: StoreLayoutProps) {
+}: DashboardLayoutProps) {
   const { userId } = auth();
 
   if (!userId) {
