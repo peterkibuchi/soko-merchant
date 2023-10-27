@@ -34,5 +34,5 @@ export default authMiddleware({
 export const config = {
   /* With this, the entire application is protected; if one tries to access it, 
   they are redirected to the Register page. Exceptions are listed above. */
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
