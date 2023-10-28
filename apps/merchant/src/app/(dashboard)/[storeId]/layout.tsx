@@ -3,6 +3,8 @@ import { auth } from "@clerk/nextjs";
 
 import { db, eq, schema } from "@acme/db";
 
+import { Navbar } from "~/components";
+
 interface DashboardLayoutProps {
   children: React.ReactNode;
   params: { storeId: string };
@@ -29,7 +31,7 @@ export default async function DashboardLayout({
 
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       {children}
     </div>
   );
