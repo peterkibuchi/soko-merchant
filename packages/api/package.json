@@ -25,8 +25,8 @@
   "dependencies": {
     "@acme/db": "^0.1.0",
     "@clerk/nextjs": "^4.26.1",
-    "@trpc/client": "^10.43.1",
-    "@trpc/server": "^10.43.1",
+    "@trpc/client": "next",
+    "@trpc/server": "next",
     "superjson": "2.2.0",
     "zod": "^3.22.4"
   },

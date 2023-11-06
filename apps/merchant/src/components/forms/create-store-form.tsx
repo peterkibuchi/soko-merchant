@@ -29,7 +29,7 @@ export function CreateStoreForm() {
 
   const {
     mutateAsync: createStore,
-    isLoading,
+    isPending,
     // error,
   } = api.store.create.useMutation({
     onSuccess() {
@@ -71,7 +71,7 @@ export function CreateStoreForm() {
 
                   <FormControl>
                     <Input
-                      disabled={isLoading}
+                      disabled={isPending}
                       placeholder="Store Name"
                       {...field}
                     />
@@ -84,14 +84,14 @@ export function CreateStoreForm() {
 
             <div className="flex w-full items-center justify-end space-x-2 pt-6">
               <Button
-                disabled={isLoading}
+                disabled={isPending}
                 variant="outline"
                 onClick={storeModal.onCloseModal}
               >
                 Cancel
               </Button>
 
-              <Button disabled={isLoading} type="submit">
+              <Button disabled={isPending} type="submit">
                 Continue
               </Button>
             </div>
