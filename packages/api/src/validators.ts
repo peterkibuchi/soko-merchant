@@ -9,4 +9,23 @@ export const createStoreSchema = z.object({
     .min(4, "Name must be at least 4 characters")
     .max(64, "Name cannot exceed 64 characters"),
 });
-export type createStoreType = z.infer<typeof createStoreSchema>;
+export type CreateStoreValues = z.infer<typeof createStoreSchema>;
+
+export const updateStoreSchema = z.object({
+  name: z
+    .string()
+    .min(4, "Name must be at least 4 characters")
+    .max(64, "Name cannot exceed 64 characters"),
+  storeId: z
+    .string()
+    .min(16, "Project ID must be at least 16 characters")
+    .max(32, "Project ID cannot exceed 32 characters"),
+});
+export type UpdateStoreValues = z.infer<typeof updateStoreSchema>;
+
+export const deleteStoreSchema = z.object({
+  storeId: z
+    .string()
+    .min(16, "Project ID must be at least 16 characters")
+    .max(32, "Project ID cannot exceed 32 characters"),
+});

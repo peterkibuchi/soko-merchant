@@ -1,7 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { createStoreSchema, type createStoreType } from "@acme/api/validators";
+import {
+  createStoreSchema,
+  type CreateStoreValues,
+} from "@acme/api/validators";
 
 import { Button } from "~/components/ui/button";
 import {
@@ -20,7 +23,7 @@ import { api } from "~/utils/api";
 export function CreateStoreForm() {
   const storeModal = useStoreModal();
 
-  const form = useForm<createStoreType>({
+  const form = useForm<CreateStoreValues>({
     resolver: zodResolver(createStoreSchema),
     defaultValues: {
       name: "",
@@ -52,7 +55,7 @@ export function CreateStoreForm() {
     },
   });
 
-  const onSubmit = async (values: createStoreType) => {
+  const onSubmit = async (values: CreateStoreValues) => {
     const response = await createStore(values);
     if (response) window.location.assign(`/${response.id}`);
   };
