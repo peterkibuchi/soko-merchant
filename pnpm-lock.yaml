@@ -158,7 +158,7 @@ devDependencies:
     specifier: ^3.1.0
     version: 3.1.0
   prettier-plugin-tailwindcss:
-    specifier: ^0.5.1
+    specifier: ^0.5.7
     version: 0.5.7(@ianvs/prettier-plugin-sort-imports@4.1.1)(prettier@3.1.0)
   tailwindcss:
     specifier: ^3.3.5
