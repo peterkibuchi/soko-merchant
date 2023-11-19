@@ -1,12 +1,12 @@
-import { type Config } from "drizzle-kit";
+import { defineConfig } from "drizzle-kit";
 
 import { env } from "~/env.mjs";
 
-export default {
+export default defineConfig({
   schema: "./src/server/db/schema",
   driver: "mysql2",
   dbCredentials: {
-    connectionString: env.DATABASE_URL,
+    uri: env.DATABASE_URL,
   },
   tablesFilter: ["soko_*"],
-} satisfies Config;
+});
