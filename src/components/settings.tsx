@@ -11,7 +11,7 @@ import { Button } from "~/components/ui/button";
 import { Heading } from "~/components/ui/heading";
 import { Separator } from "~/components/ui/separator";
 import { toast } from "~/components/ui/use-toast";
-import { getBaseUrl } from "~/hooks/get-base-url";
+import { useOrigin } from "~/hooks/use-origin";
 import { type schema } from "~/server/db";
 import { api } from "~/trpc/react";
 
@@ -23,13 +23,10 @@ interface SettingsProps {
 export function Settings({ initialData, storeId }: SettingsProps) {
   const [open, setOpen] = useState(false);
 
+  const origin = useOrigin();
   const router = useRouter();
 
-  const {
-    mutateAsync: deleteStore,
-    isPending,
-    // error,
-  } = api.store.delete.useMutation({
+  const { mutateAsync: deleteStore, isPending } = api.store.delete.useMutation({
     onSuccess() {
       toast({
         title: "Store Deleted",
@@ -49,7 +46,7 @@ export function Settings({ initialData, storeId }: SettingsProps) {
 
   const onDelete = async () => {
     await deleteStore({ storeId });
-    // router.refresh();
+    router.refresh();
     router.push("/");
   };
 
@@ -86,7 +83,7 @@ export function Settings({ initialData, storeId }: SettingsProps) {
       <ApiAlert
         title="NEXT_PUBLIC_API_URL"
         variant="public"
-        description={`${getBaseUrl()}/api/${storeId}`}
+        description={`${origin}/api/${storeId}`}
       />
     </div>
   );

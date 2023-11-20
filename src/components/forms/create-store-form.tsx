@@ -29,11 +29,7 @@ export function CreateStoreForm() {
     },
   });
 
-  const {
-    mutateAsync: createStore,
-    isPending,
-    // error,
-  } = api.store.create.useMutation({
+  const { mutateAsync: createStore, isPending } = api.store.create.useMutation({
     onSuccess() {
       toast({
         title: "Store Created",

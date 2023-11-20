@@ -34,11 +34,7 @@ export function UpdateStoreForm({ initialData }: UpdateStoreFormProps) {
     defaultValues: initialData,
   });
 
-  const {
-    mutateAsync: updateStore,
-    isPending,
-    // error,
-  } = api.store.update.useMutation({
+  const { mutateAsync: updateStore, isPending } = api.store.update.useMutation({
     onSuccess() {
       toast({
         title: "Store Updated",
@@ -61,11 +57,11 @@ export function UpdateStoreForm({ initialData }: UpdateStoreFormProps) {
   };
 
   return (
-    <div>
+    <div className="my-8">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-full space-y-8"
+          className="w-full space-y-4"
         >
           <div className="grid grid-cols-3 gap-8">
             <FormField
@@ -74,6 +70,7 @@ export function UpdateStoreForm({ initialData }: UpdateStoreFormProps) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Name</FormLabel>
+
                   <FormControl>
                     <Input
                       disabled={isPending}
@@ -81,6 +78,7 @@ export function UpdateStoreForm({ initialData }: UpdateStoreFormProps) {
                       {...field}
                     />
                   </FormControl>
+
                   <FormMessage />
                 </FormItem>
               )}
