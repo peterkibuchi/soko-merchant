@@ -3,6 +3,8 @@ import { z } from "zod";
 /**
  * Shared validators used both in the frontend and backend
  */
+
+// Store
 export const createStoreSchema = z.object({
   name: z
     .string()
@@ -18,14 +20,14 @@ export const updateStoreSchema = z.object({
     .max(64, "Name cannot exceed 64 characters"),
   storeId: z
     .string()
-    .min(16, "Project ID must be at least 16 characters")
-    .max(32, "Project ID cannot exceed 32 characters"),
+    .min(16, "Store ID must be at least 16 characters")
+    .max(32, "Store ID cannot exceed 32 characters"),
 });
 export type UpdateStoreValues = z.infer<typeof updateStoreSchema>;
 
 export const deleteStoreSchema = z.object({
   storeId: z
     .string()
-    .min(16, "Project ID must be at least 16 characters")
-    .max(32, "Project ID cannot exceed 32 characters"),
+    .min(16, "Store ID must be at least 16 characters")
+    .max(32, "Store ID cannot exceed 32 characters"),
 });

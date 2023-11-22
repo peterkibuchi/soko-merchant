@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 import { Button } from "~/components/ui/button";
 import {
@@ -15,18 +16,26 @@ import {
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { toast } from "~/components/ui/use-toast";
-import {
-  updateStoreSchema,
-  type UpdateStoreValues,
-} from "~/server/api/validators";
 import { type schema } from "~/server/db";
 import { api } from "~/trpc/react";
 
+const updateStoreSchema = z.object({
+  name: z
+    .string()
+    .min(4, "Name must be at least 4 characters")
+    .max(64, "Name cannot exceed 64 characters"),
+});
+type UpdateStoreValues = z.infer<typeof updateStoreSchema>;
+
 interface UpdateStoreFormProps {
   initialData: typeof schema.stores.$inferSelect;
+  storeId: string;
 }
 
-export function UpdateStoreForm({ initialData }: UpdateStoreFormProps) {
+export function UpdateStoreForm({
+  initialData,
+  storeId,
+}: UpdateStoreFormProps) {
   const router = useRouter();
 
   const form = useForm<UpdateStoreValues>({
@@ -52,7 +61,7 @@ export function UpdateStoreForm({ initialData }: UpdateStoreFormProps) {
   });
 
   const onSubmit = async (values: UpdateStoreValues) => {
-    await updateStore(values);
+    await updateStore({ ...values, storeId });
     router.refresh();
   };
 
@@ -85,7 +94,7 @@ export function UpdateStoreForm({ initialData }: UpdateStoreFormProps) {
             />
           </div>
 
-          <Button disabled={isPending} className="ml-auto" type="submit">
+          <Button type="submit" disabled={isPending} className="ml-auto">
             Save changes
           </Button>
         </form>

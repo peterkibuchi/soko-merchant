@@ -76,7 +76,7 @@ export function Settings({ initialData, storeId }: SettingsProps) {
 
       <Separator />
 
-      <UpdateStoreForm initialData={initialData} />
+      <UpdateStoreForm initialData={initialData} storeId={storeId} />
 
       <Separator />
 
