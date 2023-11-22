@@ -27,11 +27,10 @@ export const billboards = mySqlTable(
   "billboards",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
-    name: varchar("name", { length: 64 }).notNull(),
-    imageUrl: varchar("userId", { length: 64 }).notNull(),
-    label: varchar("userId", { length: 64 }).notNull(),
+    imageUrl: varchar("imageUrl", { length: 128 }).notNull(),
+    label: varchar("label", { length: 64 }).notNull(),
 
-    storeId: varchar("userId", { length: 32 }).notNull(),
+    storeId: varchar("storeId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
@@ -52,8 +51,8 @@ export const categories = mySqlTable(
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
     name: varchar("name", { length: 64 }).notNull(),
 
-    billboardId: varchar("userId", { length: 32 }).notNull(),
-    storeId: varchar("userId", { length: 32 }).notNull(),
+    billboardId: varchar("billboardId", { length: 32 }).notNull(),
+    storeId: varchar("storeId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,

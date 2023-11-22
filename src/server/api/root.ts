@@ -1,3 +1,4 @@
+import { billboardRouter } from "~/server/api/routers/billboard";
 import { storeRouter } from "~/server/api/routers/store";
 import { createTRPCRouter } from "~/server/api/trpc";
 
@@ -7,6 +8,7 @@ import { createTRPCRouter } from "~/server/api/trpc";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
+  billboard: billboardRouter,
   store: storeRouter,
 });
 

@@ -11,12 +11,12 @@ export const orders = mySqlTable(
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
     name: varchar("name", { length: 64 }).notNull(),
 
-    phone: varchar("name", { length: 16 }).notNull(),
-    address: varchar("name", { length: 128 }).notNull(),
+    phone: varchar("phone", { length: 16 }).notNull(),
+    address: varchar("address", { length: 128 }).notNull(),
     isPaid: boolean("isPaid").default(false).notNull(),
     isDelivered: boolean("isDelivered").default(false).notNull(),
 
-    storeId: varchar("userId", { length: 32 }).notNull(),
+    storeId: varchar("storeId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
@@ -36,8 +36,8 @@ export const orderItems = mySqlTable(
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
 
-    orderId: varchar("userId", { length: 32 }).notNull(),
-    productId: varchar("userId", { length: 32 }).notNull(),
+    orderId: varchar("orderId", { length: 32 }).notNull(),
+    productId: varchar("productId", { length: 32 }).notNull(),
   },
   (orderItem) => ({
     orderIdIdx: index("orderId_idx").on(orderItem.orderId),

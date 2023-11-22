@@ -15,16 +15,16 @@ export const products = mySqlTable(
     isArchived: boolean("isArchived").default(false).notNull(),
     isFeatured: boolean("isFeatured").default(false).notNull(),
 
-    categoryId: varchar("userId", { length: 32 }).notNull(),
-    colorId: varchar("userId", { length: 32 }).notNull(),
-    sizeId: varchar("userId", { length: 32 }).notNull(),
-    storeId: varchar("userId", { length: 32 }).notNull(),
+    categoryId: varchar("categoryId", { length: 32 }).notNull(),
+    colorId: varchar("colorId", { length: 32 }).notNull(),
+    sizeId: varchar("sizeId", { length: 32 }).notNull(),
+    storeId: varchar("storeId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
   },
   (product) => ({
-    categoryId: index("orderId_idx").on(product.categoryId),
+    categoryId: index("categoryId_idx").on(product.categoryId),
     colorId: index("colorId_idx").on(product.colorId),
     sizeId: index("sizeId_idx").on(product.sizeId),
     storeId: index("storeId_idx").on(product.storeId),
@@ -49,9 +49,9 @@ export const colors = mySqlTable(
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
     name: varchar("name", { length: 32 }).notNull(),
-    value: varchar("name", { length: 32 }).notNull(),
+    value: varchar("value", { length: 32 }).notNull(),
 
-    storeId: varchar("userId", { length: 32 }).notNull(),
+    storeId: varchar("storeId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
@@ -71,9 +71,9 @@ export const sizes = mySqlTable(
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
     name: varchar("name", { length: 32 }).notNull(),
-    value: varchar("name", { length: 32 }).notNull(),
+    value: varchar("value", { length: 32 }).notNull(),
 
-    storeId: varchar("userId", { length: 32 }).notNull(),
+    storeId: varchar("storeId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
@@ -92,9 +92,9 @@ export const images = mySqlTable(
   "images",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
-    url: varchar("name", { length: 64 }).notNull(),
+    url: varchar("url", { length: 64 }).notNull(),
 
-    productId: varchar("userId", { length: 32 }).notNull(),
+    productId: varchar("productId", { length: 32 }).notNull(),
 
     createdAt,
     updatedAt,
