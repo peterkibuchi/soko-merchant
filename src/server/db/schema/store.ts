@@ -27,8 +27,7 @@ export const billboards = mySqlTable(
   "billboards",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
-    name: varchar("name", { length: 64 }).notNull(),
-    imageUrl: varchar("userId", { length: 64 }).notNull(),
+    imageUrl: varchar("userId", { length: 128 }).notNull(),
     label: varchar("userId", { length: 64 }).notNull(),
 
     storeId: varchar("userId", { length: 32 }).notNull(),
