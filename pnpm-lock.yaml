@@ -47,6 +47,9 @@ dependencies:
   '@tanstack/react-query-next-experimental':
     specifier: 5.8.4
     version: 5.8.4(@tanstack/react-query@5.8.4)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
+  '@tanstack/react-table':
+    specifier: ^8.10.7
+    version: 8.10.7(react-dom@18.2.0)(react@18.2.0)
   '@trpc/client':
     specifier: next
     version: 11.0.0-alpha-next-2023-11-18-00-03-48.102(@trpc/server@11.0.0-alpha-next-2023-11-18-00-03-48.102)
@@ -2146,6 +2149,23 @@ packages:
       '@tanstack/query-core': 5.8.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@tanstack/react-table@8.10.7(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-bXhjA7xsTcsW8JPTTYlUg/FuBpn8MNjiEPhkNhIGCUR6iRQM2+WEco4OBpvDeVcR9SE+bmWLzdfiY7bCbCSVuA==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      '@tanstack/table-core': 8.10.7
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@tanstack/table-core@8.10.7:
+    resolution: {integrity: sha512-KQk5OMg5OH6rmbHZxuNROvdI+hKDIUxANaHlV+dPlNN7ED3qYQ/WkpY2qlXww1SIdeMlkIhpN/2L00rof0fXFw==}
+    engines: {node: '>=12'}
     dev: false
 
   /@trpc/client@11.0.0-alpha-next-2023-11-18-00-03-48.102(@trpc/server@11.0.0-alpha-next-2023-11-18-00-03-48.102):

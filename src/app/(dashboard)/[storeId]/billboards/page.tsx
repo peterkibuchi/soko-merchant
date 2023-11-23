@@ -2,7 +2,7 @@ import { format } from "date-fns";
 
 import { db, eq, schema } from "~/server/db";
 import { BillboardClient } from "./components/billboard-client";
-import { type BillboardColumn } from "./components/billboard-column";
+import { type BillboardColumn } from "./components/billboard-columns";
 
 export default async function BillboardsPage({
   params,
@@ -10,7 +10,7 @@ export default async function BillboardsPage({
   params: { storeId: string };
 }) {
   const billboards = await db.query.billboards.findMany({
-    where: eq(schema.stores.id, params.storeId),
+    where: eq(schema.billboards.storeId, params.storeId),
     // orderBy: desc[billboard.createdAt],
   });
 

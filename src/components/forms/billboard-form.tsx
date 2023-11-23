@@ -94,10 +94,12 @@ export function BillboardForm({
 
   const onSubmit = async (values: BillboardFormValues) => {
     // If billboardId exists, we are updating a billboard
-    if (billboardId) await updateBillboard({ ...values, storeId, billboardId });
-
-    // If billboardId is null, we are creating a new billboard
-    await createBillboard({ ...values, storeId });
+    if (billboardId) {
+      await updateBillboard({ ...values, storeId, billboardId });
+    } else {
+      // If billboardId is null, we are creating a new billboard
+      await createBillboard({ ...values, storeId });
+    }
 
     router.refresh();
     router.push(`/${storeId}/billboards`);
