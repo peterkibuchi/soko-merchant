@@ -1,4 +1,5 @@
 import { billboardRouter } from "~/server/api/routers/billboard";
+import { categoryRouter } from "~/server/api/routers/category";
 import { storeRouter } from "~/server/api/routers/store";
 import { createTRPCRouter } from "~/server/api/trpc";
 
@@ -9,6 +10,7 @@ import { createTRPCRouter } from "~/server/api/trpc";
  */
 export const appRouter = createTRPCRouter({
   billboard: billboardRouter,
+  category: categoryRouter,
   store: storeRouter,
 });
 
