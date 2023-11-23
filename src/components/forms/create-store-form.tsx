@@ -16,7 +16,7 @@ import { useStoreModal } from "~/hooks/use-store-modal";
 import {
   createStoreSchema,
   type CreateStoreValues,
-} from "~/server/api/validators";
+} from "~/server/api/validators/store";
 import { api } from "~/trpc/react";
 
 export function CreateStoreForm() {

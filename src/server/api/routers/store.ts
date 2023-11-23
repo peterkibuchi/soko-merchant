@@ -1,10 +1,10 @@
-import { eq, genId, schema } from "~/server/db";
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
 import {
   createStoreSchema,
   deleteStoreSchema,
   updateStoreSchema,
-} from "../validators";
+} from "~/server/api/validators/store";
+import { eq, genId, schema } from "~/server/db";
 
 export const storeRouter = createTRPCRouter({
   create: protectedProcedure
