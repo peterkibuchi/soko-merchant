@@ -15,7 +15,7 @@
 - Soko is an ecommerce platform that allows users to seamlessly create and manage an online store, and to provide shoppers with a secure and convenient buying experience.
 - It comprises two applications:
 
-1. An [merchant](https://github.com/peterkibuchi/soko-merchant) web application for store and product management.
+1. A [merchant](https://github.com/peterkibuchi/soko-merchant) web application for store and product management.
 2. A [consumer](https://github.com/peterkibuchi/soko-consumer) web application for browsing and purchasing various products.
 
 ## Technologies Used
