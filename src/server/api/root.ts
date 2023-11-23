@@ -1,6 +1,7 @@
 import { billboardRouter } from "~/server/api/routers/billboard";
 import { categoryRouter } from "~/server/api/routers/category";
 import { colorRouter } from "~/server/api/routers/color";
+import { sizeRouter } from "~/server/api/routers/size";
 import { storeRouter } from "~/server/api/routers/store";
 import { createTRPCRouter } from "~/server/api/trpc";
 
@@ -13,6 +14,7 @@ export const appRouter = createTRPCRouter({
   billboard: billboardRouter,
   category: categoryRouter,
   color: colorRouter,
+  size: sizeRouter,
   store: storeRouter,
 });
 
