@@ -1,11 +1,17 @@
 import { TRPCError } from "@trpc/server";
 
-import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "~/server/api/trpc";
 import {
   createBillboardSchema,
   deleteBillboardSchema,
+  getAllBillboardsSchema,
+  getBillboardByIdSchema,
   updateBillboardSchema,
-} from "~/server/api/validators";
+} from "~/server/api/validators/billboard";
 import { eq, genId, schema } from "~/server/db";
 
 export const billboardRouter = createTRPCRouter({
@@ -38,31 +44,6 @@ export const billboardRouter = createTRPCRouter({
       });
     }),
 
-  update: protectedProcedure
-    .input(updateBillboardSchema)
-    .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
-      const { billboardId, imageUrl, label, storeId } = input;
-
-      const storeByUserId = await ctx.db.query.stores.findFirst({
-        where:
-          eq(schema.stores.id, storeId) && eq(schema.stores.userId, userId),
-      });
-
-      if (!storeByUserId) {
-        throw new TRPCError({ code: "UNAUTHORIZED" });
-      }
-
-      await ctx.db
-        .update(schema.billboards)
-        .set({ label, imageUrl })
-        .where(eq(schema.billboards.id, billboardId));
-
-      return ctx.db.query.stores.findFirst({
-        where: eq(schema.billboards.id, billboardId),
-      });
-    }),
-
   delete: protectedProcedure
     .input(deleteBillboardSchema)
     .mutation(async ({ ctx, input }) => {
@@ -83,5 +64,50 @@ export const billboardRouter = createTRPCRouter({
         .where(eq(schema.billboards.id, billboardId));
 
       return billboardId;
+    }),
+
+  getAll: publicProcedure
+    .input(getAllBillboardsSchema)
+    .mutation(async ({ ctx, input }) => {
+      const { storeId } = input;
+
+      return ctx.db.query.billboards.findMany({
+        where: eq(schema.billboards.storeId, storeId),
+      });
+    }),
+
+  getById: publicProcedure
+    .input(getBillboardByIdSchema)
+    .mutation(async ({ ctx, input }) => {
+      const { billboardId } = input;
+
+      return ctx.db.query.billboards.findFirst({
+        where: eq(schema.billboards.id, billboardId),
+      });
+    }),
+
+  update: protectedProcedure
+    .input(updateBillboardSchema)
+    .mutation(async ({ ctx, input }) => {
+      const { userId } = ctx.auth;
+      const { billboardId, imageUrl, label, storeId } = input;
+
+      const storeByUserId = await ctx.db.query.stores.findFirst({
+        where:
+          eq(schema.stores.id, storeId) && eq(schema.stores.userId, userId),
+      });
+
+      if (!storeByUserId) {
+        throw new TRPCError({ code: "UNAUTHORIZED" });
+      }
+
+      await ctx.db
+        .update(schema.billboards)
+        .set({ label, imageUrl })
+        .where(eq(schema.billboards.id, billboardId));
+
+      return ctx.db.query.billboards.findFirst({
+        where: eq(schema.billboards.id, billboardId),
+      });
     }),
 });
