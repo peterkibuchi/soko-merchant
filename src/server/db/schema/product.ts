@@ -70,8 +70,8 @@ export const sizes = mySqlTable(
   "sizes",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
-    name: varchar("name", { length: 32 }).notNull(),
-    value: varchar("value", { length: 32 }).notNull(),
+    name: varchar("name", { length: 16 }).notNull(),
+    value: varchar("value", { length: 4 }).notNull(),
 
     storeId: varchar("storeId", { length: 32 }).notNull(),
 

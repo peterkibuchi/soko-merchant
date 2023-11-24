@@ -4,11 +4,11 @@ export const createSizeSchema = z.object({
   name: z
     .string()
     .min(4, "Name must be at least 4 characters")
-    .max(32, "Name cannot exceed 32 characters"),
+    .max(16, "Name cannot exceed 16 characters"),
   value: z
     .string()
-    .min(4, "Value must be at least 4 characters")
-    .max(32, "Value cannot exceed 32 characters"),
+    .min(1, "Value must be at least 1 character")
+    .max(4, "Value cannot exceed 4 characters"),
 
   storeId: z
     .string()
@@ -50,11 +50,11 @@ export const updateSizeSchema = z.object({
   name: z
     .string()
     .min(4, "Name must be at least 4 characters")
-    .max(32, "Name cannot exceed 32 characters"),
+    .max(16, "Name cannot exceed 16 characters"),
   value: z
     .string()
-    .min(4, "Value must be at least 4 characters")
-    .max(32, "Value cannot exceed 32 characters"),
+    .min(1, "Value must be at least 1 character")
+    .max(4, "Value cannot exceed 4 characters"),
 
   storeId: z
     .string()
