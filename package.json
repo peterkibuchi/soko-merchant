@@ -2,7 +2,7 @@
   "name": "soko-merchant",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@8.10.5",
+  "packageManager": "pnpm@8.11.0",
   "scripts": {
     "build": "next build",
     "db:push": "dotenv drizzle-kit push:mysql",
