@@ -11,51 +11,44 @@ import { Separator } from "~/components/ui/separator";
 import { toast } from "~/components/ui/use-toast";
 import { type schema } from "~/server/db";
 import { api } from "~/trpc/react";
-import { BillboardForm } from "./forms/billboard-form";
+import { SizeForm } from "../forms/size-form";
 
-interface BillboardProps {
-  initialData: typeof schema.billboards.$inferSelect | null;
-  billboardId: string | null;
+interface SizeProps {
+  initialData: typeof schema.sizes.$inferSelect | null;
+  sizeId: string | null;
   storeId: string;
 }
 
-export function Billboard({
-  initialData,
-  billboardId,
-  storeId,
-}: BillboardProps) {
+export function Size({ initialData, sizeId, storeId }: SizeProps) {
   const [open, setOpen] = useState(false);
 
   const router = useRouter();
 
-  const title = initialData ? "Edit billboard" : "Create billboard";
-  const description = initialData
-    ? "Edit your billboard."
-    : "Add a new billboard.";
+  const title = initialData ? "Edit size" : "Create size";
+  const description = initialData ? "Edit your size." : "Add a new size.";
 
-  const { mutateAsync: deleteBillboard, isPending } =
-    api.billboard.delete.useMutation({
-      onSuccess() {
-        toast({
-          title: "Billboard Deleted",
-          description: "Your billboard has been deleted successfully.",
-        });
-      },
+  const { mutateAsync: deleteSize, isPending } = api.size.delete.useMutation({
+    onSuccess() {
+      toast({
+        title: "Size Deleted",
+        description: "Your size has been deleted successfully.",
+      });
+    },
 
-      onError() {
-        toast({
-          title: "Something went wrong",
-          description:
-            "Please make sure you have removed all categories using this billboard first, then try again.",
-          variant: "destructive",
-        });
-      },
-    });
+    onError() {
+      toast({
+        title: "Something went wrong",
+        description:
+          "Please make sure you have removed all products using this size first, then try again.",
+        variant: "destructive",
+      });
+    },
+  });
 
   const onDelete = async () => {
-    if (billboardId) await deleteBillboard({ billboardId, storeId });
+    if (sizeId) await deleteSize({ sizeId, storeId });
     router.refresh();
-    router.push(`/${storeId}/billboards`);
+    router.push(`/${storeId}/sizes`);
   };
 
   return (
@@ -83,11 +76,7 @@ export function Billboard({
 
       <Separator />
 
-      <BillboardForm
-        initialData={initialData}
-        billboardId={billboardId}
-        storeId={storeId}
-      />
+      <SizeForm initialData={initialData} sizeId={sizeId} storeId={storeId} />
     </div>
   );
 }

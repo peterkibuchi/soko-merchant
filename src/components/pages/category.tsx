@@ -11,7 +11,7 @@ import { Separator } from "~/components/ui/separator";
 import { toast } from "~/components/ui/use-toast";
 import { type schema } from "~/server/db";
 import { api } from "~/trpc/react";
-import { CategoryForm } from "./forms/category-form";
+import { CategoryForm } from "../forms/category-form";
 
 interface CategoryProps {
   initialData: typeof schema.categories.$inferSelect | null;

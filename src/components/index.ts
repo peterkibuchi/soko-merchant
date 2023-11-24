@@ -1,7 +1,7 @@
 export { Analytics } from "./analytics";
-export { Billboard } from "./billboard";
-export { Category } from "./category";
 export { Navbar } from "./navbar";
-export { Settings } from "./settings";
-export { Size } from "./size";
+export { Billboard } from "./pages/billboard";
+export { Category } from "./pages/category";
+export { Settings } from "./pages/settings";
+export { Size } from "./pages/size";
 export { TailwindIndicator } from "./tailwind-indicator";
