@@ -4,11 +4,10 @@ export const createColorSchema = z.object({
   name: z
     .string()
     .min(4, "Name must be at least 4 characters")
-    .max(32, "Name cannot exceed 32 characters"),
-  value: z
-    .string()
-    .min(4, "Value must be at least 4 characters")
-    .max(32, "Value cannot exceed 32 characters"),
+    .max(16, "Name cannot exceed 16 characters"),
+  value: z.string().min(4).max(9).regex(/^#/, {
+    message: "String must be a valid hex code",
+  }),
 
   storeId: z
     .string()
@@ -50,11 +49,10 @@ export const updateColorSchema = z.object({
   name: z
     .string()
     .min(4, "Name must be at least 4 characters")
-    .max(32, "Name cannot exceed 32 characters"),
-  value: z
-    .string()
-    .min(4, "Value must be at least 4 characters")
-    .max(32, "Value cannot exceed 32 characters"),
+    .max(16, "Name cannot exceed 16 characters"),
+  value: z.string().min(4).max(9).regex(/^#/, {
+    message: "String must be a valid hex code",
+  }),
 
   storeId: z
     .string()
