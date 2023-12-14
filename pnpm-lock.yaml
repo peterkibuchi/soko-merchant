@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@clerk/nextjs':
-    specifier: ^4.28.0
-    version: 4.28.0(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^4.28.1
+    version: 4.28.1(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)
   '@hookform/resolvers':
     specifier: ^3.3.2
     version: 3.3.2(react-hook-form@7.49.2)
@@ -426,8 +426,8 @@ packages:
       - react
     dev: false
 
-  /@clerk/nextjs@4.28.0(next@14.0.4)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-VDHsks5qSymjNjE6eo8ktqQUV5dtc6XfxrY7p1x4OEtJkOKc5ooQVE8Z6QlkMG+waLCyclyUPYnA5EVCkB+6yw==}
+  /@clerk/nextjs@4.28.1(next@14.0.4)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-gWNQBZc3nLPtPPTLbR7i69wV1tKQOQvbizvJcLysmVtEG2o/XQ3j7kn1c3ekrjoMcP1cmpUM1mleTDupmuWZOA==}
     engines: {node: '>=14'}
     peerDependencies:
       next: '>=10'
