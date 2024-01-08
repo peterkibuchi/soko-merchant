@@ -10,6 +10,7 @@ import { authMiddleware } from "@clerk/nextjs/server";
 export default authMiddleware({
   signInUrl: "/login",
   publicRoutes: [
+    "/api/:path*", // Allow API routes to be public. Routes that require authentication/authorization will still be protected in the API Layer.
     "/login(.*)",
     "/pricing(.*)",
     "/privacy(.*)",

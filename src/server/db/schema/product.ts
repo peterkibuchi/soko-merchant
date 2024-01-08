@@ -92,7 +92,7 @@ export const images = mySqlTable(
   "images",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
-    url: varchar("url", { length: 64 }).notNull(),
+    url: varchar("url", { length: 128 }).notNull(),
 
     productId: varchar("productId", { length: 32 }).notNull(),
 
