@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.1",
+    "@clerk/nextjs": "^4.29.2",
     "@hookform/resolvers": "^3.3.4",
     "@planetscale/database": "^1.13.0",
     "@radix-ui/react-checkbox": "^1.0.4",
@@ -48,7 +48,7 @@
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.49.2",
+    "react-hook-form": "^7.49.3",
     "server-only": "^0.0.1",
     "superjson": "^2.2.1",
     "tailwind-merge": "^2.2.0",
@@ -62,8 +62,8 @@
     "@types/node": "^20.10.7",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
-    "@typescript-eslint/eslint-plugin": "^6.18.0",
-    "@typescript-eslint/parser": "^6.18.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
     "autoprefixer": "^10.4.16",
     "drizzle-kit": "^0.20.10",
     "eslint": "^8.56.0",
