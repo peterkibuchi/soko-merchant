@@ -9,12 +9,10 @@ export const orders = mySqlTable(
   "orders",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
-    name: varchar("name", { length: 64 }).notNull(),
 
-    phone: varchar("phone", { length: 16 }).notNull(),
-    address: varchar("address", { length: 128 }).notNull(),
+    phone: varchar("phone", { length: 16 }).default("").notNull(),
+    address: varchar("address", { length: 128 }).default("").notNull(),
     isPaid: boolean("isPaid").default(false).notNull(),
-    isDelivered: boolean("isDelivered").default(false).notNull(),
 
     storeId: varchar("storeId", { length: 32 }).notNull(),
 
