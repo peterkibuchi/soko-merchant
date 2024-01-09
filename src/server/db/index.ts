@@ -2,7 +2,7 @@ import { Client } from "@planetscale/database";
 import { drizzle } from "drizzle-orm/planetscale-serverless";
 import { customAlphabet } from "nanoid";
 
-import { env } from "~/env.mjs";
+import { env } from "~/env";
 import * as order from "./schema/order";
 import * as product from "./schema/product";
 import * as store from "./schema/store";

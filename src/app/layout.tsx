@@ -1,5 +1,5 @@
 import { type Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter as FontSans } from "next/font/google";
 import LocalFont from "next/font/local";
 import { cookies } from "next/headers";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -13,21 +13,14 @@ import { cn } from "~/lib/utils";
 import { ModalProvider, ThemeProvider } from "~/providers";
 import { TRPCReactProvider } from "~/trpc/react";
 
-const fontSans = Inter({
+const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
-const fontCal = LocalFont({
-  src: "../../public/CalSans-SemiBold.woff2",
-  variable: "--font-cal",
+const fontHeading = LocalFont({
+  src: "../styles/CalSans-SemiBold.woff2",
+  variable: "--font-heading",
 });
-
-/**
- * Since we're passing `headers()` to the `TRPCReactProvider` we need to
- * make the entire app dynamic. You can move the `TRPCReactProvider` further
- * down the tree (e.g. /dashboard and onwards) to make part of the app statically rendered.
- */
-export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: {
@@ -81,7 +74,7 @@ export default function RootLayout({
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable,
-          fontCal.variable,
+          fontHeading.variable,
         )}
       >
         <ClerkProvider>

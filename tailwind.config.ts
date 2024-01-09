@@ -4,6 +4,7 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 export default {
   content: ["./src/**/*.{ts,tsx}"],
   darkMode: ["class"],
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -54,8 +55,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        cal: ["var(--font-cal)", ...fontFamily.sans],
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        heading: ["var(--font-heading)", ...fontFamily.sans],
       },
       keyframes: {
         "accordion-down": {
