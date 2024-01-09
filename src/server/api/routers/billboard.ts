@@ -18,7 +18,7 @@ export const billboardRouter = createTRPCRouter({
   create: protectedProcedure
     .input(createBillboardSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { storeId } = input;
       const billboardId = `billboard_${genId()}`;
 
@@ -47,7 +47,7 @@ export const billboardRouter = createTRPCRouter({
   delete: protectedProcedure
     .input(deleteBillboardSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { billboardId, storeId } = input;
 
       const storeByUserId = await ctx.db.query.stores.findFirst({
@@ -89,7 +89,7 @@ export const billboardRouter = createTRPCRouter({
   update: protectedProcedure
     .input(updateBillboardSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { billboardId, imageUrl, label, storeId } = input;
 
       const storeByUserId = await ctx.db.query.stores.findFirst({

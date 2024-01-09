@@ -18,7 +18,7 @@ export const categoryRouter = createTRPCRouter({
   create: protectedProcedure
     .input(createCategorySchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { storeId } = input;
       const categoryId = `category_${genId()}`;
 
@@ -47,7 +47,7 @@ export const categoryRouter = createTRPCRouter({
   delete: protectedProcedure
     .input(deleteCategorySchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { categoryId, storeId } = input;
 
       const storeByUserId = await ctx.db.query.stores.findFirst({
@@ -89,7 +89,7 @@ export const categoryRouter = createTRPCRouter({
   update: protectedProcedure
     .input(updateCategorySchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { billboardId, categoryId, name, storeId } = input;
 
       const storeByUserId = await ctx.db.query.stores.findFirst({

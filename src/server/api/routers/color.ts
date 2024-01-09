@@ -18,7 +18,7 @@ export const colorRouter = createTRPCRouter({
   create: protectedProcedure
     .input(createColorSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { storeId } = input;
       const colorId = `color_${genId()}`;
 
@@ -45,7 +45,7 @@ export const colorRouter = createTRPCRouter({
   delete: protectedProcedure
     .input(deleteColorSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { colorId, storeId } = input;
 
       const storeByUserId = await ctx.db.query.stores.findFirst({
@@ -85,7 +85,7 @@ export const colorRouter = createTRPCRouter({
   update: protectedProcedure
     .input(updateColorSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { colorId, name, storeId, value } = input;
 
       const storeByUserId = await ctx.db.query.stores.findFirst({

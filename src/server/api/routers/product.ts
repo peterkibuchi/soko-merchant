@@ -18,7 +18,7 @@ export const productRouter = createTRPCRouter({
   create: protectedProcedure
     .input(createProductSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { storeId, price } = input;
       const productId = `product_${genId()}`;
 
@@ -35,9 +35,12 @@ export const productRouter = createTRPCRouter({
         throw new TRPCError({ code: "UNAUTHORIZED" });
       }
 
-      await ctx.db
-        .insert(schema.products)
-        .values({ id: productId, ...input, price: String(price) });
+      await ctx.db.insert(schema.products).values({
+        // `price: String(price)` must come after `...input` to avoid it being overwritten
+        id: productId,
+        ...input,
+        price: String(price),
+      });
 
       return ctx.db.query.products.findFirst({
         where: eq(schema.products.id, productId),
@@ -47,7 +50,7 @@ export const productRouter = createTRPCRouter({
   delete: protectedProcedure
     .input(deleteProductSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { productId, storeId } = input;
 
       const storeByUserId = await ctx.db.query.stores.findFirst({
@@ -72,7 +75,7 @@ export const productRouter = createTRPCRouter({
       const { storeId } = input;
       const { searchParams } = new URL(ctx.req!.url);
 
-      const isFeatured = searchParams.get("isFeatured");
+      const isFeatured = searchParams.get("isFeatured") ?? undefined;
       const categoryId = searchParams.get("categoryId") ?? undefined;
       const colorId = searchParams.get("colorId") ?? undefined;
       const sizeId = searchParams.get("sizeId") ?? undefined;
@@ -101,7 +104,7 @@ export const productRouter = createTRPCRouter({
   update: protectedProcedure
     .input(updateProductSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { productId, storeId, price } = input;
 
       const storeByUserId = await ctx.db.query.stores.findFirst({
@@ -116,6 +119,7 @@ export const productRouter = createTRPCRouter({
       await ctx.db
         .update(schema.products)
         .set({
+          // `price: String(price)` must come after `...input` to avoid it being overwritten
           ...input,
           price: String(price),
         })

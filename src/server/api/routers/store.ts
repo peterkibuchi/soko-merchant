@@ -10,7 +10,7 @@ export const storeRouter = createTRPCRouter({
   create: protectedProcedure
     .input(createStoreSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const storeId = `store_${genId()}`;
 
       // TODO: Implement rate-limiting
@@ -29,7 +29,7 @@ export const storeRouter = createTRPCRouter({
   update: protectedProcedure
     .input(updateStoreSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { name, storeId } = input;
 
       await ctx.db
@@ -47,7 +47,7 @@ export const storeRouter = createTRPCRouter({
   delete: protectedProcedure
     .input(deleteStoreSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { storeId } = input;
 
       await ctx.db

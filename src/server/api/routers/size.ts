@@ -18,7 +18,7 @@ export const sizeRouter = createTRPCRouter({
   create: protectedProcedure
     .input(createSizeSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { storeId } = input;
       const sizeId = `size_${genId()}`;
 
@@ -45,7 +45,7 @@ export const sizeRouter = createTRPCRouter({
   delete: protectedProcedure
     .input(deleteSizeSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { sizeId, storeId } = input;
 
       const storeByUserId = await ctx.db.query.stores.findFirst({
@@ -85,7 +85,7 @@ export const sizeRouter = createTRPCRouter({
   update: protectedProcedure
     .input(updateSizeSchema)
     .mutation(async ({ ctx, input }) => {
-      const { userId } = ctx.auth;
+      const { userId } = ctx.session;
       const { sizeId, name, storeId, value } = input;
 
       const storeByUserId = await ctx.db.query.stores.findFirst({
