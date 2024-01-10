@@ -13,6 +13,7 @@ import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
+import { appRouter } from "~/server/api/root";
 import { db } from "~/server/db";
 
 /**
@@ -58,6 +59,21 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
     },
   }),
 });
+
+/**
+ * Create a server-side caller
+ * @see https://trpc.io/docs/server/server-side-calls
+ */
+const createCallerFactory = t.createCallerFactory;
+
+/**
+ * Create a server-side caller for the tRPC API
+ * @example
+ * const trpc = createCaller(createContext);
+ * const res = await trpc.post.all();
+ *       ^? Post[]
+ */
+export const createCaller = createCallerFactory(appRouter);
 
 /**
  * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)
