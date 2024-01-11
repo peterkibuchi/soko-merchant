@@ -7,7 +7,7 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    CLERK_SECRET_KEY: z.string().optional(),
+    CLERK_SECRET_KEY: z.string(),
     DATABASE_URL: z
       .string()
       .url()
