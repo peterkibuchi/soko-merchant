@@ -16,14 +16,14 @@ export function getUrl() {
 }
 
 /**
- * Inference helper for inputs.
+ * Inference helper for input types.
  *
  * @example type HelloInput = RouterInputs['example']['hello']
  */
 export type RouterInputs = inferRouterInputs<AppRouter>;
 
 /**
- * Inference helper for outputs.
+ * Inference helper for output types.
  *
  * @example type HelloOutput = RouterOutputs['example']['hello']
  */
