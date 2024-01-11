@@ -1,7 +1,8 @@
 import { type inferRouterInputs, type inferRouterOutputs } from "@trpc/server";
 import superjson from "superjson";
 
-import { type AppRouter } from "~/server/api/root";
+import { appRouter, type AppRouter } from "~/server/api/root";
+import { createCallerFactory } from "~/server/api/trpc";
 
 export const transformer = superjson;
 
@@ -16,14 +17,23 @@ export function getUrl() {
 }
 
 /**
- * Inference helper for inputs.
+ * Create a server-side caller for the tRPC API
+ * @example
+ * const trpc = createCaller(createContext);
+ * const res = await trpc.post.all();
+ *       ^? Post[]
+ */
+export const createCaller = createCallerFactory(appRouter);
+
+/**
+ * Inference helper for input types.
  *
  * @example type HelloInput = RouterInputs['example']['hello']
  */
 export type RouterInputs = inferRouterInputs<AppRouter>;
 
 /**
- * Inference helper for outputs.
+ * Inference helper for output types.
  *
  * @example type HelloOutput = RouterOutputs['example']['hello']
  */
