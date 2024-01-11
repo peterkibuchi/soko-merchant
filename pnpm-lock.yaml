@@ -81,14 +81,14 @@ dependencies:
     specifier: ^0.2.0
     version: 0.2.0(@types/react@18.2.47)(react-dom@18.2.0)(react@18.2.0)
   date-fns:
-    specifier: ^3.1.0
+    specifier: ^3.2.0
     version: 3.2.0
   drizzle-orm:
     specifier: ^0.29.3
     version: 0.29.3(@planetscale/database@1.13.0)(@types/react@18.2.47)(mysql2@3.7.0)(react@18.2.0)
   lucide-react:
-    specifier: ^0.307.0
-    version: 0.307.0(react@18.2.0)
+    specifier: ^0.309.0
+    version: 0.309.0(react@18.2.0)
   nanoid:
     specifier: ^5.0.4
     version: 5.0.4
@@ -137,7 +137,7 @@ devDependencies:
     specifier: ^8.56.1
     version: 8.56.1
   '@types/node':
-    specifier: ^20.10.7
+    specifier: ^20.10.8
     version: 20.10.8
   '@types/react':
     specifier: ^18.2.47
@@ -4388,8 +4388,8 @@ packages:
       es5-ext: 0.10.62
     dev: true
 
-  /lucide-react@0.307.0(react@18.2.0):
-    resolution: {integrity: sha512-+vZ+vUiWPZTMnLHURg4aoIaz6NHOWXVVcVd8iLROu1k4LbyjcnHIKmbjXHCmulz7XAYLWRVXzhJJgIr+Aq3vOg==}
+  /lucide-react@0.309.0(react@18.2.0):
+    resolution: {integrity: sha512-zNVPczuwFrCfksZH3zbd1UDE6/WYhYAdbe2k7CImVyPAkXLgIwbs6eXQ4loigqDnUFjyFYCI5jZ1y10Kqal0dg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
