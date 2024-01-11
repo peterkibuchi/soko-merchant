@@ -1,3 +1,5 @@
+"use client";
+
 import { useParams, useRouter } from "next/navigation";
 import { CopyIcon, EditIcon, MoreHorizontalIcon } from "lucide-react";
 

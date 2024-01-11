@@ -1,3 +1,5 @@
+"use client";
+
 import { CreateStoreForm } from "~/components/forms/create-store-form";
 import { Modal } from "~/components/ui/modal";
 import { useStoreModal } from "~/hooks/use-store-modal";
