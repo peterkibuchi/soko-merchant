@@ -45,18 +45,18 @@ export const deleteProductSchema = z.object({
     .max(32, "Store ID cannot exceed 32 characters"),
 });
 
-export const getProductByIdSchema = z.object({
-  productId: z
-    .string()
-    .min(16, "Product ID must be at least 16 characters")
-    .max(32, "Product ID cannot exceed 32 characters"),
-});
-
 export const getAllProductsSchema = z.object({
   storeId: z
     .string()
     .min(16, "Store ID must be at least 16 characters")
     .max(32, "Store ID cannot exceed 32 characters"),
+});
+
+export const getProductByIdSchema = z.object({
+  productId: z
+    .string()
+    .min(16, "Product ID must be at least 16 characters")
+    .max(32, "Product ID cannot exceed 32 characters"),
 });
 
 export const updateProductSchema = z.object({

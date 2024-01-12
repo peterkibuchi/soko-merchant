@@ -25,18 +25,18 @@ export const deleteBillboardSchema = z.object({
     .max(32, "Store ID cannot exceed 32 characters"),
 });
 
-export const getBillboardByIdSchema = z.object({
-  billboardId: z
-    .string()
-    .min(16, "Billboard ID must be at least 16 characters")
-    .max(32, "Billboard ID cannot exceed 32 characters"),
-});
-
 export const getAllBillboardsSchema = z.object({
   storeId: z
     .string()
     .min(16, "Store ID must be at least 16 characters")
     .max(32, "Store ID cannot exceed 32 characters"),
+});
+
+export const getBillboardByIdSchema = z.object({
+  billboardId: z
+    .string()
+    .min(16, "Billboard ID must be at least 16 characters")
+    .max(32, "Billboard ID cannot exceed 32 characters"),
 });
 
 export const updateBillboardSchema = z.object({
