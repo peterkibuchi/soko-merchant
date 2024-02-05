@@ -41,7 +41,7 @@
     "cmdk": "^0.2.1",
     "date-fns": "^3.3.1",
     "drizzle-orm": "^0.29.3",
-    "lucide-react": "^0.321.0",
+    "lucide-react": "^0.322.0",
     "nanoid": "^5.0.5",
     "next": "^14.1.0",
     "next-cloudinary": "^5.20.0",
