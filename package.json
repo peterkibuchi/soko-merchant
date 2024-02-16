@@ -35,7 +35,7 @@
     "@trpc/client": "next",
     "@trpc/react-query": "next",
     "@trpc/server": "next",
-    "@vercel/analytics": "^1.1.4",
+    "@vercel/analytics": "^1.2.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^0.2.1",
