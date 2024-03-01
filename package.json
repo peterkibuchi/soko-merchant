@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.8",
+    "@clerk/nextjs": "^4.29.9",
     "@hookform/resolvers": "^3.3.4",
     "@planetscale/database": "^1.16.0",
     "@radix-ui/react-checkbox": "^1.0.4",
