@@ -1,11 +1,11 @@
 import { relations } from "drizzle-orm";
-import { index, varchar } from "drizzle-orm/mysql-core";
+import { index, varchar } from "drizzle-orm/pg-core";
 
-import { createdAt, mySqlTable, updatedAt } from "./_table";
+import { createdAt, pgTable, updatedAt } from "./_table";
 import { orders } from "./order";
 import { colors, products, sizes } from "./product";
 
-export const stores = mySqlTable("stores", {
+export const stores = pgTable("stores", {
   id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
   name: varchar("name", { length: 64 }).notNull(),
   userId: varchar("userId", { length: 64 }).notNull(),
@@ -23,7 +23,7 @@ export const storesRelations = relations(stores, ({ many }) => ({
   sizes: many(sizes),
 }));
 
-export const billboards = mySqlTable(
+export const billboards = pgTable(
   "billboards",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
@@ -36,7 +36,7 @@ export const billboards = mySqlTable(
     updatedAt,
   },
   (billboard) => ({
-    storeIdIdx: index("storeId_idx").on(billboard.storeId),
+    storeIdIdx: index("billboards_storeId_idx").on(billboard.storeId),
   }),
 );
 
@@ -45,7 +45,7 @@ export const billboardsRelations = relations(billboards, ({ many, one }) => ({
   store: one(stores, { fields: [billboards.storeId], references: [stores.id] }),
 }));
 
-export const categories = mySqlTable(
+export const categories = pgTable(
   "categories",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
@@ -58,8 +58,8 @@ export const categories = mySqlTable(
     updatedAt,
   },
   (category) => ({
-    billboardId: index("billboardId_idx").on(category.billboardId),
-    storeId: index("storeId_idx").on(category.storeId),
+    billboardId: index("categories_billboardId_idx").on(category.billboardId),
+    storeId: index("categories_storeId_idx").on(category.storeId),
   }),
 );
 

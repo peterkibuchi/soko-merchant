@@ -1,11 +1,11 @@
 import { relations } from "drizzle-orm";
-import { boolean, decimal, index, varchar } from "drizzle-orm/mysql-core";
+import { boolean, decimal, index, varchar } from "drizzle-orm/pg-core";
 
-import { createdAt, mySqlTable, updatedAt } from "./_table";
+import { createdAt, pgTable, updatedAt } from "./_table";
 import { orderItems } from "./order";
 import { categories, stores } from "./store";
 
-export const products = mySqlTable(
+export const products = pgTable(
   "products",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
@@ -24,10 +24,10 @@ export const products = mySqlTable(
     updatedAt,
   },
   (product) => ({
-    categoryId: index("categoryId_idx").on(product.categoryId),
-    colorId: index("colorId_idx").on(product.colorId),
-    sizeId: index("sizeId_idx").on(product.sizeId),
-    storeId: index("storeId_idx").on(product.storeId),
+    categoryId: index("products_categoryId_idx").on(product.categoryId),
+    colorId: index("products_colorId_idx").on(product.colorId),
+    sizeId: index("products_sizeId_idx").on(product.sizeId),
+    storeId: index("products_storeId_idx").on(product.storeId),
   }),
 );
 
@@ -44,7 +44,7 @@ export const productsRelations = relations(products, ({ many, one }) => ({
   store: one(stores, { fields: [products.storeId], references: [stores.id] }),
 }));
 
-export const colors = mySqlTable(
+export const colors = pgTable(
   "colors",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
@@ -57,7 +57,7 @@ export const colors = mySqlTable(
     updatedAt,
   },
   (color) => ({
-    storeIdIdx: index("storeId_idx").on(color.storeId),
+    storeIdIdx: index("colors_storeId_idx").on(color.storeId),
   }),
 );
 
@@ -66,7 +66,7 @@ export const colorsRelations = relations(colors, ({ many, one }) => ({
   store: one(stores, { fields: [colors.storeId], references: [stores.id] }),
 }));
 
-export const sizes = mySqlTable(
+export const sizes = pgTable(
   "sizes",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
@@ -79,7 +79,7 @@ export const sizes = mySqlTable(
     updatedAt,
   },
   (size) => ({
-    storeIdIdx: index("storeId_idx").on(size.storeId),
+    storeIdIdx: index("sizes_storeId_idx").on(size.storeId),
   }),
 );
 
@@ -88,7 +88,7 @@ export const sizesRelations = relations(sizes, ({ many, one }) => ({
   store: one(stores, { fields: [sizes.storeId], references: [stores.id] }),
 }));
 
-export const images = mySqlTable(
+export const images = pgTable(
   "images",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
@@ -100,7 +100,7 @@ export const images = mySqlTable(
     updatedAt,
   },
   (image) => ({
-    productIdIdx: index("productId_idx").on(image.productId),
+    productIdIdx: index("images_productId_idx").on(image.productId),
   }),
 );
 

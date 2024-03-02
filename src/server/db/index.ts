@@ -1,6 +1,6 @@
-import { Client } from "@planetscale/database";
-import { drizzle } from "drizzle-orm/planetscale-serverless";
+import { drizzle } from "drizzle-orm/postgres-js";
 import { customAlphabet } from "nanoid";
+import postgres from "postgres";
 
 import { env } from "~/env";
 import * as order from "./schema/order";
@@ -11,12 +11,7 @@ export const schema = { ...order, ...product, ...store };
 
 export * from "drizzle-orm";
 
-export const db = drizzle(
-  new Client({
-    url: env.DATABASE_URL,
-  }).connection(),
-  { schema },
-);
+export const db = drizzle(postgres(env.DATABASE_URL), { schema });
 
 // Use custom alphabet without special chars for less chaotic, copy-able URLs
 // Will not collide for a long long time: https://zelark.github.io/nano-id-cc/

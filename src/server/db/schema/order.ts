@@ -1,11 +1,11 @@
 import { relations } from "drizzle-orm";
-import { boolean, index, varchar } from "drizzle-orm/mysql-core";
+import { boolean, index, varchar } from "drizzle-orm/pg-core";
 
-import { createdAt, mySqlTable, updatedAt } from "./_table";
+import { createdAt, pgTable, updatedAt } from "./_table";
 import { products } from "./product";
 import { stores } from "./store";
 
-export const orders = mySqlTable(
+export const orders = pgTable(
   "orders",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
@@ -20,7 +20,7 @@ export const orders = mySqlTable(
     updatedAt,
   },
   (order) => ({
-    storeIdIdx: index("storeId_idx").on(order.storeId),
+    storeIdIdx: index("orders_storeId_idx").on(order.storeId),
   }),
 );
 
@@ -29,7 +29,7 @@ export const ordersRelations = relations(orders, ({ many, one }) => ({
   store: one(stores, { fields: [orders.storeId], references: [stores.id] }),
 }));
 
-export const orderItems = mySqlTable(
+export const orderItems = pgTable(
   "orderItems",
   {
     id: varchar("id", { length: 32 }).primaryKey(), // prefix_ + nanoid(16)
@@ -38,8 +38,8 @@ export const orderItems = mySqlTable(
     productId: varchar("productId", { length: 32 }).notNull(),
   },
   (orderItem) => ({
-    orderIdIdx: index("orderId_idx").on(orderItem.orderId),
-    productId: index("productId_idx").on(orderItem.productId),
+    orderIdIdx: index("orderItems_orderId_idx").on(orderItem.orderId),
+    productId: index("orderItems_productId_idx").on(orderItem.productId),
   }),
 );
 

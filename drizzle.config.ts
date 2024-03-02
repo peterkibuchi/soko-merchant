@@ -4,9 +4,9 @@ import { env } from "~/env";
 
 export default defineConfig({
   schema: "./src/server/db/schema",
-  driver: "mysql2",
+  driver: "pg",
   dbCredentials: {
-    uri: env.DATABASE_URL,
+    connectionString: env.DATABASE_URL,
   },
   tablesFilter: ["soko_*"],
 });

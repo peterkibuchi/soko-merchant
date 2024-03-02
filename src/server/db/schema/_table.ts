@@ -1,5 +1,4 @@
-import { sql } from "drizzle-orm";
-import { mysqlTableCreator, timestamp } from "drizzle-orm/mysql-core";
+import { pgTableCreator, timestamp } from "drizzle-orm/pg-core";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM.
@@ -7,9 +6,7 @@ import { mysqlTableCreator, timestamp } from "drizzle-orm/mysql-core";
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const mySqlTable = mysqlTableCreator((name) => `soko_${name}`);
+export const pgTable = pgTableCreator((name) => `soko_${name}`);
 
-export const createdAt = timestamp("created_at")
-  .default(sql`CURRENT_TIMESTAMP`)
-  .notNull();
-export const updatedAt = timestamp("updatedAt").onUpdateNow();
+export const createdAt = timestamp("createdAt").defaultNow().notNull();
+export const updatedAt = timestamp("updatedAt").defaultNow();
