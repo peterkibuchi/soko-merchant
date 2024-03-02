@@ -18,8 +18,8 @@ export async function Navbar() {
   });
 
   const formattedStoreItems = stores.map((store) => ({
-    id: store.id!,
-    label: store.name!,
+    id: store.id,
+    label: store.name,
   }));
 
   return (
