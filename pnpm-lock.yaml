@@ -90,8 +90,8 @@ dependencies:
     specifier: ^14.1.3
     version: 14.1.3(@babel/core@7.23.3)(react-dom@18.2.0)(react@18.2.0)
   next-cloudinary:
-    specifier: ^6.2.0
-    version: 6.2.0(next@14.1.3)(react@18.2.0)
+    specifier: ^6.2.1
+    version: 6.2.1(next@14.1.3)(react@18.2.0)
   next-themes:
     specifier: ^0.2.1
     version: 0.2.1(next@14.1.3)(react-dom@18.2.0)(react@18.2.0)
@@ -4461,8 +4461,8 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-cloudinary@6.2.0(next@14.1.3)(react@18.2.0):
-    resolution: {integrity: sha512-yr3uKtfNfJ6ybd97j/lkL7qCGMDifysuelE8I9Xu5tCgn+86XGy1pVEPLQ0XUSG0wYaKC5LxnRgkD+0BPB5lKw==}
+  /next-cloudinary@6.2.1(next@14.1.3)(react@18.2.0):
+    resolution: {integrity: sha512-ixHXTk5/Ftmo0x2m1Zggs5lq8EwZ15IUDeghaG6AVE2cXZUAm3NViE+CFS8mmtdov5YQojgicFsBEWWPkEe9Kg==}
     peerDependencies:
       next: ^12 || ^13 || ^14
       react: ^17 || ^18
