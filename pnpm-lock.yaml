@@ -79,7 +79,7 @@ dependencies:
     version: 3.6.0
   drizzle-orm:
     specifier: ^0.30.4
-    version: 0.30.4(@types/react@18.2.67)(postgres@3.4.3)(react@18.2.0)
+    version: 0.30.4(@types/react@18.2.67)(postgres@3.4.4)(react@18.2.0)
   lucide-react:
     specifier: ^0.360.0
     version: 0.360.0(react@18.2.0)
@@ -96,8 +96,8 @@ dependencies:
     specifier: ^0.3.0
     version: 0.3.0(react-dom@18.2.0)(react@18.2.0)
   postgres:
-    specifier: ^3.4.3
-    version: 3.4.3
+    specifier: ^3.4.4
+    version: 3.4.4
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -3017,7 +3017,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.30.4(@types/react@18.2.67)(postgres@3.4.3)(react@18.2.0):
+  /drizzle-orm@0.30.4(@types/react@18.2.67)(postgres@3.4.4)(react@18.2.0):
     resolution: {integrity: sha512-kWoSMGbrOFkmkAweLTFtHJMpN+nwhx89q0mLELqT2aEU+1szNV8jrnBmJwZ0WGNp7J7yQn/ezEtxBI/qzTSElQ==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -3095,7 +3095,7 @@ packages:
         optional: true
     dependencies:
       '@types/react': 18.2.67
-      postgres: 3.4.3
+      postgres: 3.4.4
       react: 18.2.0
     dev: false
 
@@ -4772,8 +4772,8 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.2.0
 
-  /postgres@3.4.3:
-    resolution: {integrity: sha512-iHJn4+M9vbTdHSdDzNkC0crHq+1CUdFhx+YqCE+SqWxPjm+Zu63jq7yZborOBF64c8pc58O5uMudyL1FQcHacA==}
+  /postgres@3.4.4:
+    resolution: {integrity: sha512-IbyN+9KslkqcXa8AO9fxpk97PA4pzewvpi2B3Dwy9u4zpV32QicaEdgmF3eSQUzdRk7ttDHQejNgAEr4XoeH4A==}
     engines: {node: '>=12'}
     dev: false
 
