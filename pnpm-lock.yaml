@@ -81,8 +81,8 @@ dependencies:
     specifier: ^0.30.4
     version: 0.30.4(@types/react@18.2.67)(postgres@3.4.4)(react@18.2.0)
   lucide-react:
-    specifier: ^0.362.0
-    version: 0.362.0(react@18.2.0)
+    specifier: ^0.363.0
+    version: 0.363.0(react@18.2.0)
   nanoid:
     specifier: ^5.0.6
     version: 5.0.6
@@ -4340,8 +4340,8 @@ packages:
       es5-ext: 0.10.62
     dev: true
 
-  /lucide-react@0.362.0(react@18.2.0):
-    resolution: {integrity: sha512-0S+JudK0AD9vyB0zbu1K0aQsy8k9Wq2l03bio6wxqF2FhK2TSp/y+22HfMyv40EURifgxoSwdU8eIcOv0a8gBA==}
+  /lucide-react@0.363.0(react@18.2.0):
+    resolution: {integrity: sha512-AlsfPCsXQyQx7wwsIgzcKOL9LwC498LIMAo+c0Es5PkHJa33xwmYAkkSoKoJWWWSYQEStqu58/jT4tL2gi32uQ==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
