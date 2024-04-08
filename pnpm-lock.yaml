@@ -90,8 +90,8 @@ dependencies:
     specifier: ^14.1.4
     version: 14.1.4(@babel/core@7.24.0)(react-dom@18.2.0)(react@18.2.0)
   next-cloudinary:
-    specifier: ^6.3.0
-    version: 6.3.0(next@14.1.4)(react@18.2.0)
+    specifier: ^6.4.0
+    version: 6.4.0(next@14.1.4)(react@18.2.0)
   next-themes:
     specifier: ^0.3.0
     version: 0.3.0(react-dom@18.2.0)(react@18.2.0)
@@ -471,8 +471,8 @@ packages:
       csstype: 3.1.1
     dev: false
 
-  /@cloudinary-util/types@1.0.1:
-    resolution: {integrity: sha512-aj/m3Sn5RSYKk6dAZJcjerKfVNrcCyL6v6pcDl4aNpQ3zSWMOvnIrzCidE9paaw1r+ZWonjNnhkA0anLdwRRfA==}
+  /@cloudinary-util/types@1.0.2:
+    resolution: {integrity: sha512-j3xUfN4uMFDMSvoQeOMxqKYsGZovlRFr8niOQXfcqoHp7NVBiJm8oy6y2HDGQhxH63irmFt8VtzJEnYwGYsGXg==}
     dev: false
 
   /@cloudinary-util/url-loader@5.2.1:
@@ -4452,13 +4452,13 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-cloudinary@6.3.0(next@14.1.4)(react@18.2.0):
-    resolution: {integrity: sha512-BPs+I2Qb9hdbnBZFhZeuTRdAC9jTXB6glNeswfZT7eUgwYB4d8LyrZQ4A6owaqZ9qyZm1THdJj6cuS0Y+wlrdw==}
+  /next-cloudinary@6.4.0(next@14.1.4)(react@18.2.0):
+    resolution: {integrity: sha512-3hyebniYMv6ATuphvwqZo/IN5ae2cqqGVZOF8Zkb8oJGQE9FoDJO1p5pz+qYY6vJn1se6Ofp1hy15jAbpKClCw==}
     peerDependencies:
       next: ^12 || ^13 || ^14
       react: ^17 || ^18
     dependencies:
-      '@cloudinary-util/types': 1.0.1
+      '@cloudinary-util/types': 1.0.2
       '@cloudinary-util/url-loader': 5.2.1
       '@cloudinary-util/util': 3.0.0
       '@tsconfig/recommended': 1.0.3
