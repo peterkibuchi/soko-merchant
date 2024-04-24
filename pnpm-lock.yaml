@@ -58,13 +58,13 @@ importers:
         version: 8.16.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@trpc/client':
         specifier: next
-        version: 11.0.0-next-alpha.166
+        version: 11.0.0-rc.351(@trpc/server@11.0.0-rc.351)
       '@trpc/react-query':
         specifier: next
-        version: 11.0.0-next-alpha.166(@tanstack/react-query@5.32.0(react@18.2.0))(@trpc/client@11.0.0-next-alpha.166)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 11.0.0-rc.351(@tanstack/react-query@5.32.0(react@18.2.0))(@trpc/client@11.0.0-rc.351(@trpc/server@11.0.0-rc.351))(@trpc/server@11.0.0-rc.351)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@trpc/server':
         specifier: next
-        version: 11.0.0-next-alpha.166
+        version: 11.0.0-rc.351
       '@vercel/analytics':
         specifier: ^1.2.2
         version: 1.2.2(next@14.2.2(@babel/core@7.24.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)
@@ -84,8 +84,8 @@ importers:
         specifier: ^0.30.9
         version: 0.30.9(@types/react@18.2.79)(postgres@3.4.4)(react@18.2.0)
       lucide-react:
-        specifier: ^0.372.0
-        version: 0.372.0(react@18.2.0)
+        specifier: ^0.373.0
+        version: 0.373.0(react@18.2.0)
       nanoid:
         specifier: ^5.0.7
         version: 5.0.7
@@ -1222,22 +1222,22 @@ packages:
     resolution: {integrity: sha512-dCG8vQGk4js5v88/k83tTedWOwjGnIyONrKpHpfmSJB8jwFHl8GSu1sBBxbtACVAPtAQgwNxl0rw1d3RqRM1Tg==}
     engines: {node: '>=12'}
 
-  '@trpc/client@11.0.0-next-alpha.166':
-    resolution: {integrity: sha512-z1r27sZEXjIHhbkd5MUgsJ78jruB/c2PsHnvi4WBk5/X0EmH7bhZbJOd4lMdmWX+6sP1bz+zefUSYBiEqALQaQ==}
-
-  '@trpc/core@11.0.0-next-alpha.166':
-    resolution: {integrity: sha512-AvhgzwmzgSK2FenLq9dm5YqbLVEUL+5OR2m/r0lZkilBBxiDbNArv1YQFJ0ycHjDeGI5Mju7VMoLYrpriwQ2VQ==}
-
-  '@trpc/react-query@11.0.0-next-alpha.166':
-    resolution: {integrity: sha512-ix1R87TAIXI7htqRDW5NnkwifhkG3WKx0whMiTGnNKIwZYICvw+5J86Z8eQeb0QhL/Dy2Km2+nDlhLMq9xk7YQ==}
+  '@trpc/client@11.0.0-rc.351':
+    resolution: {integrity: sha512-48LKVO6pSk6/NSKmwZ1ixzQm/S3DD8iAI5j+L9Pqou/IPbS52qJepaCWd1bTWO+iDgXa9MxcsD0Gr8/IL5TznQ==}
     peerDependencies:
-      '@tanstack/react-query': ^5.0.0
-      '@trpc/client': 11.0.0-next-alpha.166+5ecfbf985
+      '@trpc/server': 11.0.0-rc.351+a9b03d7f3
+
+  '@trpc/react-query@11.0.0-rc.351':
+    resolution: {integrity: sha512-kEhXm/B1m2yIJ3ZiI2MdTHCzveoDBH03HdjD07pSoKuiXfDo221sX4Az9YaZ1wSwCFIt6L03Z5OopOhlxhK3ww==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.25.0
+      '@trpc/client': 11.0.0-rc.351+a9b03d7f3
+      '@trpc/server': 11.0.0-rc.351+a9b03d7f3
       react: '>=18.2.0'
       react-dom: '>=18.2.0'
 
-  '@trpc/server@11.0.0-next-alpha.166':
-    resolution: {integrity: sha512-DrAuTMZc7gJnZNAvmzf5vHeUXupWiEkQGVwpHYOYamhpjN9P4o5atI3li9Jdbjb3iNmb446ACcFcnrk9xNlXVg==}
+  '@trpc/server@11.0.0-rc.351':
+    resolution: {integrity: sha512-Y1Iw9iiF9LCJ2ldS/af+2RXzIbgWvQ4DHVVgHYOGB+uINpAugsUmogoEkZ6rYOgusNz6qkRzY8JKOSR7FQ1aUg==}
 
   '@tsconfig/recommended@1.0.3':
     resolution: {integrity: sha512-+jby/Guq9H8O7NWgCv6X8VAiQE8Dr/nccsCtL74xyHKhu2Knu5EAKmOZj3nLCnLm1KooUzKY+5DsnGVqhM8/wQ==}
@@ -2442,8 +2442,8 @@ packages:
   lru-queue@0.1.0:
     resolution: {integrity: sha512-BpdYkt9EvGl8OfWHDQPISVpcl5xZthb+XPsbELj5AQXxIC8IriDZIQYjBJPEm5rS420sjZ0TLEzRcq5KdBhYrQ==}
 
-  lucide-react@0.372.0:
-    resolution: {integrity: sha512-0cKdqmilHXWUwWAWnf6CrrjHD8YaqPMtLrmEHXolZusNTr9epULCsiJwIOHk2q1yFxdEwd96D4zShlAj67UJdA==}
+  lucide-react@0.373.0:
+    resolution: {integrity: sha512-0kygFhk/DmK4mi+zf1t5mNStJQGaElACZdDdLiHOHFJzi7g3maC3SR86AcaUsxvDkZPId3XCd4vRngnjkPHu3Q==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
 
@@ -4224,23 +4224,19 @@ snapshots:
 
   '@tanstack/table-core@8.16.0': {}
 
-  '@trpc/client@11.0.0-next-alpha.166':
+  '@trpc/client@11.0.0-rc.351(@trpc/server@11.0.0-rc.351)':
     dependencies:
-      '@trpc/core': 11.0.0-next-alpha.166
+      '@trpc/server': 11.0.0-rc.351
 
-  '@trpc/core@11.0.0-next-alpha.166': {}
-
-  '@trpc/react-query@11.0.0-next-alpha.166(@tanstack/react-query@5.32.0(react@18.2.0))(@trpc/client@11.0.0-next-alpha.166)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@trpc/react-query@11.0.0-rc.351(@tanstack/react-query@5.32.0(react@18.2.0))(@trpc/client@11.0.0-rc.351(@trpc/server@11.0.0-rc.351))(@trpc/server@11.0.0-rc.351)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@tanstack/react-query': 5.32.0(react@18.2.0)
-      '@trpc/client': 11.0.0-next-alpha.166
-      '@trpc/core': 11.0.0-next-alpha.166
+      '@trpc/client': 11.0.0-rc.351(@trpc/server@11.0.0-rc.351)
+      '@trpc/server': 11.0.0-rc.351
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@trpc/server@11.0.0-next-alpha.166':
-    dependencies:
-      '@trpc/core': 11.0.0-next-alpha.166
+  '@trpc/server@11.0.0-rc.351': {}
 
   '@tsconfig/recommended@1.0.3': {}
 
@@ -5706,7 +5702,7 @@ snapshots:
     dependencies:
       es5-ext: 0.10.62
 
-  lucide-react@0.372.0(react@18.2.0):
+  lucide-react@0.373.0(react@18.2.0):
     dependencies:
       react: 18.2.0
 
