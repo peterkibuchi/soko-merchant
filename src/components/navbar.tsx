@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
-import { useAuth, UserButton } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 import { MainNav } from "~/components/main-nav";
 import { StoreSwitcher } from "~/components/store-switcher";
@@ -7,7 +8,7 @@ import { ThemeToggle } from "~/components/theme-toggle";
 import { db, eq, schema } from "~/server/db";
 
 export async function Navbar() {
-  const { userId } = useAuth();
+  const { userId } = auth();
 
   if (!userId) {
     redirect("/login");
