@@ -1,7 +1,6 @@
 import { type Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import LocalFont from "next/font/local";
-import { cookies } from "next/headers";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "~/styles/globals.css";
@@ -78,7 +77,7 @@ export default function RootLayout({
         )}
       >
         <ClerkProvider>
-          <TRPCReactProvider cookies={cookies().toString()}>
+          <TRPCReactProvider>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               {children}
               <TailwindIndicator />

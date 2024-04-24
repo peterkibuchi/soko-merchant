@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { useAuth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 import { db, eq, schema } from "~/server/db";
 
@@ -8,7 +8,7 @@ interface SetupLayoutProps {
 }
 
 export default async function SetupLayout({ children }: SetupLayoutProps) {
-  const { userId } = useAuth();
+  const { userId } = auth();
 
   if (!userId) {
     redirect("/login");

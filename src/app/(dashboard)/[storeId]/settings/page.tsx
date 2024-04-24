@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { useAuth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 import { Settings } from "~/components";
 import { db, eq, schema } from "~/server/db";
@@ -9,7 +9,7 @@ interface SettingsPageProps {
 }
 
 export default async function SettingsPage({ params }: SettingsPageProps) {
-  const { userId } = useAuth();
+  const { userId } = auth();
 
   if (!userId) {
     redirect("/login");
