@@ -58,13 +58,13 @@ importers:
         version: 8.16.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@trpc/client':
         specifier: next
-        version: 11.0.0-next-alpha.166
+        version: 11.0.0-rc.351(@trpc/server@11.0.0-rc.351)
       '@trpc/react-query':
         specifier: next
-        version: 11.0.0-next-alpha.166(@tanstack/react-query@5.32.0(react@18.2.0))(@trpc/client@11.0.0-next-alpha.166)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 11.0.0-rc.351(@tanstack/react-query@5.32.0(react@18.2.0))(@trpc/client@11.0.0-rc.351(@trpc/server@11.0.0-rc.351))(@trpc/server@11.0.0-rc.351)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@trpc/server':
         specifier: next
-        version: 11.0.0-next-alpha.166
+        version: 11.0.0-rc.351
       '@vercel/analytics':
         specifier: ^1.2.2
         version: 1.2.2(next@14.2.3(@babel/core@7.24.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)
@@ -160,8 +160,8 @@ importers:
         specifier: ^8.57.0
         version: 8.57.0
       eslint-config-next:
-        specifier: ^14.2.2
-        version: 14.2.2(eslint@8.57.0)(typescript@5.4.5)
+        specifier: ^14.2.3
+        version: 14.2.3(eslint@8.57.0)(typescript@5.4.5)
       postcss:
         specifier: ^8.4.38
         version: 8.4.38
@@ -714,8 +714,8 @@ packages:
   '@next/eslint-plugin-next@12.3.4':
     resolution: {integrity: sha512-BFwj8ykJY+zc1/jWANsDprDIu2MgwPOIKxNVnrKvPs+f5TPegrVnem8uScND+1veT4B7F6VeqgaNLFW1Hzl9Og==}
 
-  '@next/eslint-plugin-next@14.2.2':
-    resolution: {integrity: sha512-q+Ec2648JtBpKiu/FSJm8HAsFXlNvioHeBCbTP12T1SGcHYwhqHULSfQgFkPgHDu3kzNp2Kem4J54bK4rPQ5SQ==}
+  '@next/eslint-plugin-next@14.2.3':
+    resolution: {integrity: sha512-L3oDricIIjgj1AVnRdRor21gI7mShlSwU/1ZGHmqM3LzHhXXhdkrfeNY5zif25Bi5Dd7fiJHsbhoZCHfXYvlAw==}
 
   '@next/swc-darwin-arm64@14.2.3':
     resolution: {integrity: sha512-3pEYo/RaGqPP0YzwnlmPN2puaF2WMLM3apt5jLW2fFdXD9+pqcoTzRk+iZsf8ta7+quAe4Q6Ms0nR0SFGFdS1A==}
@@ -1222,22 +1222,22 @@ packages:
     resolution: {integrity: sha512-dCG8vQGk4js5v88/k83tTedWOwjGnIyONrKpHpfmSJB8jwFHl8GSu1sBBxbtACVAPtAQgwNxl0rw1d3RqRM1Tg==}
     engines: {node: '>=12'}
 
-  '@trpc/client@11.0.0-next-alpha.166':
-    resolution: {integrity: sha512-z1r27sZEXjIHhbkd5MUgsJ78jruB/c2PsHnvi4WBk5/X0EmH7bhZbJOd4lMdmWX+6sP1bz+zefUSYBiEqALQaQ==}
-
-  '@trpc/core@11.0.0-next-alpha.166':
-    resolution: {integrity: sha512-AvhgzwmzgSK2FenLq9dm5YqbLVEUL+5OR2m/r0lZkilBBxiDbNArv1YQFJ0ycHjDeGI5Mju7VMoLYrpriwQ2VQ==}
-
-  '@trpc/react-query@11.0.0-next-alpha.166':
-    resolution: {integrity: sha512-ix1R87TAIXI7htqRDW5NnkwifhkG3WKx0whMiTGnNKIwZYICvw+5J86Z8eQeb0QhL/Dy2Km2+nDlhLMq9xk7YQ==}
+  '@trpc/client@11.0.0-rc.351':
+    resolution: {integrity: sha512-48LKVO6pSk6/NSKmwZ1ixzQm/S3DD8iAI5j+L9Pqou/IPbS52qJepaCWd1bTWO+iDgXa9MxcsD0Gr8/IL5TznQ==}
     peerDependencies:
-      '@tanstack/react-query': ^5.0.0
-      '@trpc/client': 11.0.0-next-alpha.166+5ecfbf985
+      '@trpc/server': 11.0.0-rc.351+a9b03d7f3
+
+  '@trpc/react-query@11.0.0-rc.351':
+    resolution: {integrity: sha512-kEhXm/B1m2yIJ3ZiI2MdTHCzveoDBH03HdjD07pSoKuiXfDo221sX4Az9YaZ1wSwCFIt6L03Z5OopOhlxhK3ww==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.25.0
+      '@trpc/client': 11.0.0-rc.351+a9b03d7f3
+      '@trpc/server': 11.0.0-rc.351+a9b03d7f3
       react: '>=18.2.0'
       react-dom: '>=18.2.0'
 
-  '@trpc/server@11.0.0-next-alpha.166':
-    resolution: {integrity: sha512-DrAuTMZc7gJnZNAvmzf5vHeUXupWiEkQGVwpHYOYamhpjN9P4o5atI3li9Jdbjb3iNmb446ACcFcnrk9xNlXVg==}
+  '@trpc/server@11.0.0-rc.351':
+    resolution: {integrity: sha512-Y1Iw9iiF9LCJ2ldS/af+2RXzIbgWvQ4DHVVgHYOGB+uINpAugsUmogoEkZ6rYOgusNz6qkRzY8JKOSR7FQ1aUg==}
 
   '@tsconfig/recommended@1.0.3':
     resolution: {integrity: sha512-+jby/Guq9H8O7NWgCv6X8VAiQE8Dr/nccsCtL74xyHKhu2Knu5EAKmOZj3nLCnLm1KooUzKY+5DsnGVqhM8/wQ==}
@@ -1896,8 +1896,8 @@ packages:
       typescript:
         optional: true
 
-  eslint-config-next@14.2.2:
-    resolution: {integrity: sha512-12/uFc0KX+wUs7EDpOUGKMXBXZJiBVGdK5/m/QgXOCg2mQ0bQWoKSWNrCeOg7Vum6Kw1d1TW453W6xh+GbHquw==}
+  eslint-config-next@14.2.3:
+    resolution: {integrity: sha512-ZkNztm3Q7hjqvB1rRlOX8P9E/cXRL9ajRcs8jufEtwMfTVYRqnmtnaSu57QqHyBlovMuiB8LEzfLBkh5RYV6Fg==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
       typescript: '>=3.3.1'
@@ -3713,7 +3713,7 @@ snapshots:
     dependencies:
       glob: 7.1.7
 
-  '@next/eslint-plugin-next@14.2.2':
+  '@next/eslint-plugin-next@14.2.3':
     dependencies:
       glob: 10.3.10
 
@@ -4224,23 +4224,19 @@ snapshots:
 
   '@tanstack/table-core@8.16.0': {}
 
-  '@trpc/client@11.0.0-next-alpha.166':
+  '@trpc/client@11.0.0-rc.351(@trpc/server@11.0.0-rc.351)':
     dependencies:
-      '@trpc/core': 11.0.0-next-alpha.166
+      '@trpc/server': 11.0.0-rc.351
 
-  '@trpc/core@11.0.0-next-alpha.166': {}
-
-  '@trpc/react-query@11.0.0-next-alpha.166(@tanstack/react-query@5.32.0(react@18.2.0))(@trpc/client@11.0.0-next-alpha.166)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@trpc/react-query@11.0.0-rc.351(@tanstack/react-query@5.32.0(react@18.2.0))(@trpc/client@11.0.0-rc.351(@trpc/server@11.0.0-rc.351))(@trpc/server@11.0.0-rc.351)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@tanstack/react-query': 5.32.0(react@18.2.0)
-      '@trpc/client': 11.0.0-next-alpha.166
-      '@trpc/core': 11.0.0-next-alpha.166
+      '@trpc/client': 11.0.0-rc.351(@trpc/server@11.0.0-rc.351)
+      '@trpc/server': 11.0.0-rc.351
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@trpc/server@11.0.0-next-alpha.166':
-    dependencies:
-      '@trpc/core': 11.0.0-next-alpha.166
+  '@trpc/server@11.0.0-rc.351': {}
 
   '@tsconfig/recommended@1.0.3': {}
 
@@ -5005,9 +5001,9 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-config-next@14.2.2(eslint@8.57.0)(typescript@5.4.5):
+  eslint-config-next@14.2.3(eslint@8.57.0)(typescript@5.4.5):
     dependencies:
-      '@next/eslint-plugin-next': 14.2.2
+      '@next/eslint-plugin-next': 14.2.3
       '@rushstack/eslint-patch': 1.5.1
       '@typescript-eslint/parser': 6.18.1(eslint@8.57.0)(typescript@5.4.5)
       eslint: 8.57.0
@@ -5141,7 +5137,7 @@ snapshots:
 
   eslint-plugin-jsx-a11y@6.8.0(eslint@8.57.0):
     dependencies:
-      '@babel/runtime': 7.24.0
+      '@babel/runtime': 7.24.4
       aria-query: 5.3.0
       array-includes: 3.1.7
       array.prototype.flatmap: 1.3.2
