@@ -6,15 +6,11 @@ await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  images: { domains: ["res.cloudinary.com"] },
 
   /** We already do linting and typechecking as separate tasks in CI */
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
-
-  images: {
-    domains: ["res.cloudinary.com"],
-  },
 };
 
 export default nextConfig;
