@@ -93,8 +93,8 @@ importers:
         specifier: ^14.2.3
         version: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-cloudinary:
-        specifier: ^6.5.1
-        version: 6.5.1(next@14.2.3(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        specifier: ^6.5.2
+        version: 6.5.2(next@14.2.3(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       next-themes:
         specifier: ^0.3.0
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -317,8 +317,8 @@ packages:
     resolution: {integrity: sha512-JtQINgvRGkO9K8os8pSj3QvNrBDvdc0lFpbTwpF3J1CBLafiJmJiBUyUSzWcI/k/9FlClMZxauZufVp9jlSBjg==}
     engines: {node: '>=18.17.0'}
 
-  '@cloudinary-util/types@1.0.2':
-    resolution: {integrity: sha512-j3xUfN4uMFDMSvoQeOMxqKYsGZovlRFr8niOQXfcqoHp7NVBiJm8oy6y2HDGQhxH63irmFt8VtzJEnYwGYsGXg==}
+  '@cloudinary-util/types@1.0.3':
+    resolution: {integrity: sha512-j7TcghSVC7Hwu6yijumWjImnWD7T1HPDsdE4eaaP4ykOUUuZoBg1ErAg6T89RHG9uR7lZGa++QwYAZxIvos9SA==}
 
   '@cloudinary-util/url-loader@5.2.2':
     resolution: {integrity: sha512-gwoBuyoJBriUvmX3jk6Q1k5NdziloEhIp/4InLB6yBNe88K7bVbR/V8dJRhba0ZvlYDOOPjIiJLAa5J7xAnUlw==}
@@ -2555,8 +2555,8 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  next-cloudinary@6.5.1:
-    resolution: {integrity: sha512-YxZevyfDBmEa/nThq6HCKaFuvfZldTXrA1nCbGyOcf5tZ/ms5yQSNkJimwz0qApWyqKt/jBC8UfqG8wrRNnD/A==}
+  next-cloudinary@6.5.2:
+    resolution: {integrity: sha512-uY+isu853KY29Y8PNd07iTth0hlLayDZmR+O8GLUYBOOgj0ew/VCqW/lL9AoaBwIq5S8kASjk3wkbYNyg4tf4w==}
     peerDependencies:
       next: ^12 || ^13 || ^14
       react: ^17 || ^18
@@ -3488,7 +3488,7 @@ snapshots:
     dependencies:
       csstype: 3.1.1
 
-  '@cloudinary-util/types@1.0.2': {}
+  '@cloudinary-util/types@1.0.3': {}
 
   '@cloudinary-util/url-loader@5.2.2':
     dependencies:
@@ -5885,9 +5885,9 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-cloudinary@6.5.1(next@14.2.3(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
+  next-cloudinary@6.5.2(next@14.2.3(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@cloudinary-util/types': 1.0.2
+      '@cloudinary-util/types': 1.0.3
       '@cloudinary-util/url-loader': 5.2.2
       '@cloudinary-util/util': 3.0.0
       '@tsconfig/recommended': 1.0.6
